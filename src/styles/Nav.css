@@ -1,0 +1,49 @@
+* {
+    color: white;
+}
+
+#nav-div {
+    z-index: 2;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 300px;
+    height: 100vh;
+    background-color: rgb(16, 34, 22);
+    padding-left: 10px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#add-board-button {
+    height: 60px;
+    width: 60px;
+    font-size: 40px;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    float: right;
+    margin-top: 20px;
+    margin-right: 5px;
+    font-weight: 100;
+}
+
+#board-name-input {
+    background-color: rgb(16, 34, 22);
+    margin-left: 10px;
+    height: 20px;
+    font-size: 15px;
+    width: 200px;
+}
+
+#my-boards-text {
+    margin-top: 30px;
+    font-size: 35px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.nav-item {
+    margin-left: 15px;
+    font-size: 25px;
+    width: 270px;
+}

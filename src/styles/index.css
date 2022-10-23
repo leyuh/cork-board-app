@@ -1,0 +1,16 @@
+* {
+    overflow: hidden;
+}
+
+#background-div {
+    background-color: rgb(164, 199, 164);
+    height: calc(100vh + 50px);
+    width: calc(100vw - 250px);
+    position: fixed;
+    left: 275px;
+    top: -25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
