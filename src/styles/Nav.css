@@ -33,6 +33,7 @@
     height: 20px;
     font-size: 15px;
     width: 200px;
+    margin-top: 15px;
 }
 
 #my-boards-text {
@@ -40,10 +41,4 @@
     font-size: 35px;
     display: inline-block;
     margin-bottom: 5px;
-}
-
-.nav-item {
-    margin-left: 15px;
-    font-size: 25px;
-    width: 270px;
 }

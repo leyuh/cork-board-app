@@ -1,0 +1,47 @@
+.nav-item-div {
+    margin-left: 15px;
+    width: 280px;
+    height: 55px;
+}
+
+.nav-item-div > h3 {
+    font-size: 25px;
+    color: white;
+    width: 180px;
+    height: 55px;
+    overflow: hidden;
+}
+
+.nav-item-btn {
+    height: 28px;
+    width: 28px;
+    border: 2px solid;
+    border-radius: 5px;
+    display: inline;
+    float: right;
+    position: relative;
+    top: -80px;
+    margin-left: 3px;
+    margin-right: 3px;
+
+    display: none;
+}
+
+.nav-item-div:hover .nav-item-btn {
+    display: inline;
+}
+
+.add-component-btn {
+    background-color: #99e675;
+    border-color: #559e33;
+}
+
+.delete-board-btn {
+    background-color: #b54545;
+    border-color: #872a2a;
+}
+
+.rename-board-btn {
+    background-color: #e6be60;
+    border-color: #b38b2e;
+}

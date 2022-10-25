@@ -1,9 +1,9 @@
 function Board(props) {
-  const {boardId} = props;
+  const {name} = props;
 
   return (
     <div>
-      {boardId}
+      {name}
     </div>
   );
 }
