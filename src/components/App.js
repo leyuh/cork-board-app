@@ -6,8 +6,8 @@ import '../styles/App.css';
 
 function App () {
 
-    // state to hold board count
     const [boardCount, setBoardCount] = useState(0);
+
     // state to hold all current boards
     const [currentBoards, setCurrentBoards] = useState([]);
 
@@ -54,12 +54,35 @@ function App () {
         return 1;
     }
 
+    const DeleteBoard = (name) => {
+        setBoardCount(oldCount => oldCount - 1);
+
+        if (currentBoard == name) {
+            setCurrentBoard("");
+        }
+
+        let newBoards = [];
+        currentBoards.forEach((n, indx) => {
+            if (n != name) {
+                newBoards.push(n);
+            }
+        })
+
+        setCurrentBoards(oldBoards => newBoards);
+        setCurrentBoard("");
+        return 1;
+    }
+
 
     return <div id="background-div">
         <Nav 
         setShowInput={setShowInput}
         showInput={showInput}
         currentBoards={currentBoards}
+        currentBoard={currentBoard}
+        setCurrentBoard={setCurrentBoard}
+        setCurrentBoards={setCurrentBoards}
+        DeleteBoard={DeleteBoard}
         />
         {(boardCount == 0) ? <Welcome/> : <Board name={currentBoard}/>}
 

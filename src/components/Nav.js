@@ -4,15 +4,24 @@ import NavItem from './NavItem';
 
 function Nav(props) {
 
-    const {setShowInput, showInput, currentBoards} = props;
+    const {setShowInput, showInput, currentBoards, currentBoard, setCurrentBoard, setCurrentBoards, DeleteBoard} = props;
 
     return <div id="nav-div">
         <h1 id="my-boards-text">My Boards</h1>
         <button id="add-board-button" onClick={() => {
             setShowInput(!showInput);
         }}>+</button>
+        {console.log(currentBoards)}
         {currentBoards.map((name, i) => {
-            return <NavItem boardName={name} index={i} key={i}/>
+            return <NavItem 
+            boardName={name} 
+            index={i} key={i} 
+            setCurrentBoard={setCurrentBoard} 
+            currentBoard={currentBoard}
+            currentBoards={currentBoards}
+            setCurrentBoards={setCurrentBoards}
+            DeleteBoard={DeleteBoard}
+            />
         })}
         {showInput ? <input type="text" id="board-name-input" placeholder="Board name" autoFocus/> : ""}
 
