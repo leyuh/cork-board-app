@@ -1,0 +1,21 @@
+.sticky-note-div {
+    height: 25%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(245, 196, 70);
+    box-shadow: 4px 8px 10px rgba(24, 24, 24, 0.6);
+}
+
+.sticky-note-textarea {
+    height: calc(100% - 10px);
+    width: calc(100% - 10px);
+    text-align: left;
+    font-size: 16px;
+    background-color: rgb(0, 0, 0, 0);
+    border-width: 0px;
+    resize: none;
+    font-family: "Comic Sans MS";
+    color: rgb(25, 25, 25);
+}
