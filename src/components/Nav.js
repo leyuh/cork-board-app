@@ -14,15 +14,15 @@ function Nav(props) {
         {console.log(currentBoards)}
         {currentBoards.map((name, i) => {
             return <NavItem 
-            boardName={name} 
-            index={i} key={i} 
-            setCurrentBoard={setCurrentBoard} 
-            currentBoard={currentBoard}
-            currentBoards={currentBoards}
-            setCurrentBoards={setCurrentBoards}
-            DeleteBoard={DeleteBoard}
-            showBoardCompMenu={showBoardCompMenu}
-            setShowBoardCompMenu={setShowBoardCompMenu}
+                boardName={name} 
+                index={i} key={i} 
+                setCurrentBoard={setCurrentBoard} 
+                currentBoard={currentBoard}
+                currentBoards={currentBoards}
+                setCurrentBoards={setCurrentBoards}
+                DeleteBoard={DeleteBoard}
+                showBoardCompMenu={showBoardCompMenu}
+                setShowBoardCompMenu={setShowBoardCompMenu}
             />
         })}
         {showInput ? <input type="text" id="board-name-input" placeholder="Board name" autoFocus/> : ""}

@@ -10,8 +10,3 @@ root.render(
   </React.StrictMode>
 );
 
-function printMousePos(event) {
-  console.log(event.clientX, event.clientY);
-}
-
-document.addEventListener("click", printMousePos);

@@ -22,6 +22,7 @@ function App () {
 
     const [placingComponent, setPlacingComponent] = useState("");
 
+
     useEffect(() => {
         let inp = document.getElementById("board-name-input");
         let boardName
@@ -106,9 +107,11 @@ function App () {
             showBoardCompMenu={showBoardCompMenu}
             setShowBoardCompMenu={setShowBoardCompMenu}
         />
-        {(boardCount == 0) ? <Welcome/> : <Board contents={{
-            "name": currentBoard
-        }}/>}
+        {(boardCount == 0) ? <Welcome/> : <Board
+        name={currentBoard}
+        placingComponent={placingComponent}
+        setPlacingComponent={setPlacingComponent}
+        />}
 
         {showBoardCompMenu ? <AddCompMenu
             showBoardCompMenu={showBoardCompMenu}
