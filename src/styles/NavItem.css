@@ -1,5 +1,5 @@
 .nav-item-div {
-    margin-left: 15px;
+    margin-left: 20px;
     width: 280px;
     height: 55px;
 }
@@ -21,8 +21,7 @@
     float: right;
     position: relative;
     top: -80px;
-    margin-left: 3px;
-    margin-right: 3px;
+    margin-right: 5px;
 
     display: none;
 }

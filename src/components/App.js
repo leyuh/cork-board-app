@@ -3,6 +3,9 @@ import Board from './Board';
 import Welcome from './Welcome';
 import Nav from './Nav';
 import '../styles/App.css';
+import AddCompMenu from "./AddCompMenu";
+
+import stickyNoteImg from '../images/stickyNote.png'
 
 function App () {
 
@@ -14,6 +17,10 @@ function App () {
     const [currentBoard, setCurrentBoard] = useState("");
     
     const [showInput, setShowInput] = useState(false);
+
+    const [showBoardCompMenu, setShowBoardCompMenu] = useState(false);
+
+    const [placingComponent, setPlacingComponent] = useState("");
 
     useEffect(() => {
         let inp = document.getElementById("board-name-input");
@@ -40,6 +47,19 @@ function App () {
         })
 
     }, [showInput])
+
+    // placing component effect
+    useEffect(() => {
+        if (placingComponent == "sticky note") {
+            console.log("ping");
+            document.body.style.cursor = "grab";
+            // add event listener to current board, place sticky note when clicked and change placingComponent to ""
+        } else if (placingComponent == "") {
+            document.body.style.cursor = "default";
+        }
+
+    }, [placingComponent])
+
 
     const AddBoard = (name) => {
         // update state to hold new name
@@ -76,15 +96,26 @@ function App () {
 
     return <div id="background-div">
         <Nav 
-        setShowInput={setShowInput}
-        showInput={showInput}
-        currentBoards={currentBoards}
-        currentBoard={currentBoard}
-        setCurrentBoard={setCurrentBoard}
-        setCurrentBoards={setCurrentBoards}
-        DeleteBoard={DeleteBoard}
+            setShowInput={setShowInput}
+            showInput={showInput}
+            currentBoards={currentBoards}
+            currentBoard={currentBoard}
+            setCurrentBoard={setCurrentBoard}
+            setCurrentBoards={setCurrentBoards}
+            DeleteBoard={DeleteBoard}
+            showBoardCompMenu={showBoardCompMenu}
+            setShowBoardCompMenu={setShowBoardCompMenu}
         />
-        {(boardCount == 0) ? <Welcome/> : <Board name={currentBoard}/>}
+        {(boardCount == 0) ? <Welcome/> : <Board contents={{
+            "name": currentBoard
+        }}/>}
+
+        {showBoardCompMenu ? <AddCompMenu
+            showBoardCompMenu={showBoardCompMenu}
+            setShowBoardCompMenu={setShowBoardCompMenu}
+            placingComponent={placingComponent}
+            setPlacingComponent={setPlacingComponent}
+        /> : ""}
 
     </div>
 

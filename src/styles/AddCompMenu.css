@@ -1,0 +1,56 @@
+#add-comp-menu-div {
+    height: 300px;
+    width: 300px;
+    background-color: rgb(16, 34, 22);
+    position: absolute;
+    top: calc(50% - 150px);
+    left: calc(50% - 150px);
+    border-radius: 20px;
+    border: 10px solid rgb(3, 12, 4);
+}
+
+#add-comp-title {
+    margin-left: 15px;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+#add-comp-menu-div > ul {
+    width: 93%;
+}
+
+#add-comp-menu-div > ul > li {
+    margin-top: 10px;
+    font-size: 25px;
+    width: 100%;
+    margin-left: -30px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(3, 12, 4);
+    height: 55px;
+    border-radius: 5px;
+}
+
+.comp-img {
+    height: 50px;
+    width: 50px;
+    left: -20px;
+}
+
+.add-comp-btn {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    font-size: 25px;
+    font-family: inherit;
+    height: 100%;
+    width: 220px;
+    text-align: left;
+    margin-left: 15px;
+    top: -20px;
+}
+
+#sticky-note-img {
+    height: 40px;
+    width: 40px;
+    margin-left: 5px;
+}

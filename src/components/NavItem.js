@@ -1,7 +1,8 @@
 import '../styles/NavItem.css';
 
 function NavItem (props) {
-    const {boardName, index, setCurrentBoard, currentBoard, currentBoards, setCurrentBoards, DeleteBoard} = props;
+    const {boardName, index, setCurrentBoard, currentBoard, currentBoards, setCurrentBoards, DeleteBoard, showBoardCompMenu, setShowBoardCompMenu} = props;
+
     return <div id={`nav-item-${index}`} className="nav-item-div">
         <h3 onClick={() => {
             setCurrentBoard(boardName);
@@ -10,7 +11,9 @@ function NavItem (props) {
             DeleteBoard(boardName);
         }}></button>
         <button className="nav-item-btn rename-board-btn"></button>
-        <button className="nav-item-btn add-component-btn"></button>
+        <button className="nav-item-btn add-component-btn" onClick={() => {
+            setShowBoardCompMenu(!showBoardCompMenu);
+        }}></button>
     </div>
 
 }
