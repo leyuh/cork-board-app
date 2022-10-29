@@ -5,9 +5,10 @@ import StickyNote from './StickyNote';
 
 
 function Board(props) {
-  const [contents, setContents] = useState([]);
 
-  const {name, placingComponent, setPlacingComponent} = props;
+  const {name, placingComponent, setPlacingComponent, currentBoards, boardComponents, setBoardComponents} = props;
+
+  var boardIndex = currentBoards.indexOf(name);
 
   const PlaceBoardComponent = (e) => {
     if (e.target.className == "main-board-div") {
@@ -16,8 +17,13 @@ function Board(props) {
       let posY = e.pageY;
 
       setPlacingComponent("");
+      
+      let thisCompData = [compType, posX, posY, ""];
 
-      setContents([...contents, [compType, posX, posY]]);
+      let newBoardComps = boardComponents;
+      newBoardComps[boardIndex].push(thisCompData);
+
+      setBoardComponents(newBoardComps);
     }
   }
 
@@ -38,10 +44,20 @@ function Board(props) {
 
     <div className="main-board-div">
 
-      {contents.map((val, i) => {
+      {boardComponents[boardIndex].map((val, i) => {
         switch (val[0]) {
           case "sticky note":
-            return <StickyNote boardName={name} posX={val[1]} posY={val[2]} key={i}/>
+            return <StickyNote
+              boardName={name} 
+              posX={val[1]} 
+              posY={val[2]} 
+              boardComponents={ boardComponents }
+              setBoardComponents= { setBoardComponents }
+              currentBoards={ currentBoards }
+              boardIndex = {boardIndex}
+              indx={i}
+              key={i}
+            />
           default:
             return ""
         }

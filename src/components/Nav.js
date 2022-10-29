@@ -11,7 +11,6 @@ function Nav(props) {
         <button id="add-board-button" onClick={() => {
             setShowInput(!showInput);
         }}>+</button>
-        {console.log(currentBoards)}
         {currentBoards.map((name, i) => {
             return <NavItem 
                 boardName={name} 

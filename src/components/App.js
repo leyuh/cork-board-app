@@ -9,10 +9,12 @@ import stickyNoteImg from '../images/stickyNote.png'
 
 function App () {
 
-    const [boardCount, setBoardCount] = useState(0);
 
+    const [boardCount, setBoardCount] = useState(0);
     // state to hold all current boards
     const [currentBoards, setCurrentBoards] = useState([]);
+
+    const [boardComponents, setBoardComponents] = useState([]);
 
     const [currentBoard, setCurrentBoard] = useState("");
     
@@ -31,7 +33,6 @@ function App () {
             listener = inp.addEventListener("keydown", (e) => {
                 if (e.key == "Enter") {
                     // ENTER PRESSED
-                    console.log("ping");
                     boardName = inp.value;
                     setShowInput(false);
                     AddBoard(boardName);
@@ -52,7 +53,6 @@ function App () {
     // placing component effect
     useEffect(() => {
         if (placingComponent == "sticky note") {
-            console.log("ping");
             document.body.style.cursor = "grab";
             // add event listener to current board, place sticky note when clicked and change placingComponent to ""
         } else if (placingComponent == "") {
@@ -67,10 +67,12 @@ function App () {
         if (name != "" && name != " ") {
             setBoardCount(oldCount => oldCount + 1);
             setCurrentBoards((boards) => {
-                return [...boards,
-                name]
+                return [...boards, name];
             })
             setCurrentBoard(name);
+            setBoardComponents((comps) => {
+                return [...comps, []];
+            })
         }
         return 1;
     }
@@ -111,6 +113,9 @@ function App () {
         name={currentBoard}
         placingComponent={placingComponent}
         setPlacingComponent={setPlacingComponent}
+        currentBoards={currentBoards}
+        boardComponents={boardComponents}
+        setBoardComponents={setBoardComponents}
         />}
 
         {showBoardCompMenu ? <AddCompMenu
