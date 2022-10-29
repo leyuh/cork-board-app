@@ -9,10 +9,8 @@ function App () {
 
 
     const [boardCount, setBoardCount] = useState(0);
-    // state to hold all current boards
-    const [currentBoards, setCurrentBoards] = useState([]);
 
-    const [boardComponents, setBoardComponents] = useState([]);
+    const [boardComponents, setBoardComponents] = useState({});
 
     const [currentBoard, setCurrentBoard] = useState("");
     
@@ -22,11 +20,6 @@ function App () {
 
     const [placingComponent, setPlacingComponent] = useState("");
 
-    const updateInput = (e, boardIndex, indx) => {
-        let newBoardComps = boardComponents;
-        newBoardComps[boardIndex][indx][3] = e.target.value;
-        setBoardComponents(newBoardComps);
-    }
 
 
     useEffect(() => {
@@ -70,12 +63,12 @@ function App () {
         // update state to hold new name
         if (name !== "" && name !== " ") {
             setBoardCount(oldCount => oldCount + 1);
-            setCurrentBoards((boards) => {
-                return [...boards, name];
-            })
+
             setCurrentBoard(name);
             setBoardComponents((comps) => {
-                return [...comps, []];
+                let copy = comps;
+                copy[name] = [];
+                return copy;
             })
         }
         return 1;
@@ -88,14 +81,15 @@ function App () {
             setCurrentBoard("");
         }
 
-        let newBoards = [];
-        currentBoards.forEach((n, indx) => {
-            if (n !== name) {
-                newBoards.push(n);
+        let newComps = {};
+        for (const [key, value] of Object.entries(boardComponents)){
+            if (key !== name) {
+                newComps[key] = value;
             }
-        })
+        }
 
-        setCurrentBoards(oldBoards => newBoards);
+        setBoardComponents(newComps);
+
         setCurrentBoard("");
         return 1;
     }
@@ -105,9 +99,9 @@ function App () {
         <Nav 
             setShowInput={setShowInput}
             showInput={showInput}
-            currentBoards={currentBoards}
-            setCurrentBoard={setCurrentBoard}
             DeleteBoard={DeleteBoard}
+            boardComponents={boardComponents}
+            setCurrentBoard={setCurrentBoard}
             showBoardCompMenu={showBoardCompMenu}
             setShowBoardCompMenu={setShowBoardCompMenu}
         />
@@ -115,10 +109,8 @@ function App () {
             name={currentBoard}
             placingComponent={placingComponent}
             setPlacingComponent={setPlacingComponent}
-            currentBoards={currentBoards}
             boardComponents={boardComponents}
             setBoardComponents={setBoardComponents}
-            updateInput={updateInput}
         />}
 
         {showBoardCompMenu ? <AddCompMenu

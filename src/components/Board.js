@@ -6,9 +6,8 @@ import React from 'react';
 
 function Board(props) {
 
-  const {name, placingComponent, setPlacingComponent, currentBoards, boardComponents, setBoardComponents, updateInput} = props;
+  const {name, placingComponent, setPlacingComponent, boardComponents, setBoardComponents} = props;
 
-  var boardIndex = currentBoards.indexOf(name);
 
 
 
@@ -22,10 +21,12 @@ function Board(props) {
       
       let thisCompData = [compType, posX, posY, ""];
 
-      let newBoardComps = boardComponents;
-      newBoardComps[boardIndex].push(thisCompData);
+      if (boardComponents[name]) {
+        let newBoardComps = boardComponents;
+        newBoardComps[name].push(thisCompData);
 
-      setBoardComponents(newBoardComps);
+        setBoardComponents(newBoardComps);
+      }
     }
   }
 
@@ -41,27 +42,24 @@ function Board(props) {
 
   }, [placingComponent])
 
+  useEffect(() => {
+    console.log("PING ", boardComponents[name]);
+  })
 
   return (
-
     <div className="main-board-div">
-
-      {boardComponents[boardIndex].map((val, i) => {
+      {(boardComponents[name] && boardComponents[name].length > 0) ? boardComponents[name].map((val, i) => {
         switch (val[0]) {
           case "sticky note":
             return <StickyNote
               posX={val[1]} 
               posY={val[2]} 
-              content={val[3]}
-              boardIndex = {boardIndex}
-              updateInput = {updateInput}
-              indx={i}
               key={i}
             />
           default:
             return ""
         }
-      })}
+      }) : ""}
     </div>
   );
 }

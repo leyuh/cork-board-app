@@ -2,9 +2,10 @@ import '../styles/NavItem.css';
 import React from 'react';
 
 function NavItem (props) {
-    const {boardName, index, setCurrentBoard, DeleteBoard, showBoardCompMenu, setShowBoardCompMenu} = props;
-    return <div id={`nav-item-${index}`} className="nav-item-div">
+    const {boardName, setCurrentBoard, DeleteBoard, showBoardCompMenu, setShowBoardCompMenu} = props;
+    return <div className="nav-item-div">
         <h3 onClick={() => {
+            console.log(boardName);
             setCurrentBoard(boardName);
         }}>{boardName}</h3>
         <button className="nav-item-btn delete-board-btn" onClick={() => {

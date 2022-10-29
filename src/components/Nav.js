@@ -4,17 +4,17 @@ import NavItem from './NavItem';
 
 function Nav(props) {
 
-    const {setShowInput, showInput, currentBoards, setCurrentBoard, DeleteBoard, showBoardCompMenu, setShowBoardCompMenu} = props;
+    const {setShowInput, showInput, DeleteBoard, boardComponents, setCurrentBoard, showBoardCompMenu, setShowBoardCompMenu} = props;
 
     return <div id="nav-div">
         <h1 id="my-boards-text">My Boards</h1>
         <button id="add-board-button" onClick={() => {
             setShowInput(!showInput);
         }}>+</button>
-        {currentBoards.map((name, i) => {
+        {Object.keys(boardComponents).map((name , i) => {
             return <NavItem 
                 boardName={name} 
-                index={i} key={i} 
+                key={i} 
                 setCurrentBoard={setCurrentBoard} 
                 DeleteBoard={DeleteBoard}
                 showBoardCompMenu={showBoardCompMenu}
