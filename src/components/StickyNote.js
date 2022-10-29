@@ -1,21 +1,23 @@
 import '../styles/StickyNote.css';
-import { useState, useEffect } from 'react';
-import { update } from 'tar';
+import React, {useRef} from 'react';
 
 function StickyNote (props) {
 
-    const {boardName, posX, posY, boardComponents, setBoardComponents, currentBoards, boardIndex, indx, updateInput} = props;
+    const { posX, posY, content, boardIndex, updateInput, indx} = props;
+    console.log(boardIndex, indx);
 
+    const cont = useRef(content);
 
-    return <div className="sticky-note-div" style={{
+    return <div className="sticky-note-div" index={`sticky-note-div-${boardIndex}-${indx}`} style={{
         position: "absolute",
         left: `${posX - 375}px`,
         top: `${posY - 75}px`,
     }}>
         <textarea 
             className="sticky-note-textarea" 
-            defaultValue={boardComponents[boardIndex][indx][3]} 
-            onInput={(e) => {updateInput(e.target.value, indx)}}>
+            defaultValue={cont.current}
+            onInput={e => updateInput(e, boardIndex, indx)}
+        >
         </textarea>
     </div>
 }

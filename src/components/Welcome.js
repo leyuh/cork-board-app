@@ -1,4 +1,5 @@
 import '../styles/Welcome.css';
+import React from 'react';
 
 function Welcome() {
     return <div id="welcome-div">

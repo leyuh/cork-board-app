@@ -5,8 +5,6 @@ import Nav from './Nav';
 import '../styles/App.css';
 import AddCompMenu from "./AddCompMenu";
 
-import stickyNoteImg from '../images/stickyNote.png'
-
 function App () {
 
 
@@ -24,6 +22,12 @@ function App () {
 
     const [placingComponent, setPlacingComponent] = useState("");
 
+    const updateInput = (e, boardIndex, indx) => {
+        let newBoardComps = boardComponents;
+        newBoardComps[boardIndex][indx][3] = e.target.value;
+        setBoardComponents(newBoardComps);
+    }
+
 
     useEffect(() => {
         let inp = document.getElementById("board-name-input");
@@ -31,7 +35,7 @@ function App () {
         let listener;
         if (showInput) {
             listener = inp.addEventListener("keydown", (e) => {
-                if (e.key == "Enter") {
+                if (e.key === "Enter") {
                     // ENTER PRESSED
                     boardName = inp.value;
                     setShowInput(false);
@@ -52,10 +56,10 @@ function App () {
 
     // placing component effect
     useEffect(() => {
-        if (placingComponent == "sticky note") {
+        if (placingComponent === "sticky note") {
             document.body.style.cursor = "grab";
             // add event listener to current board, place sticky note when clicked and change placingComponent to ""
-        } else if (placingComponent == "") {
+        } else if (placingComponent === "") {
             document.body.style.cursor = "default";
         }
 
@@ -64,7 +68,7 @@ function App () {
 
     const AddBoard = (name) => {
         // update state to hold new name
-        if (name != "" && name != " ") {
+        if (name !== "" && name !== " ") {
             setBoardCount(oldCount => oldCount + 1);
             setCurrentBoards((boards) => {
                 return [...boards, name];
@@ -80,13 +84,13 @@ function App () {
     const DeleteBoard = (name) => {
         setBoardCount(oldCount => oldCount - 1);
 
-        if (currentBoard == name) {
+        if (currentBoard === name) {
             setCurrentBoard("");
         }
 
         let newBoards = [];
         currentBoards.forEach((n, indx) => {
-            if (n != name) {
+            if (n !== name) {
                 newBoards.push(n);
             }
         })
@@ -102,26 +106,23 @@ function App () {
             setShowInput={setShowInput}
             showInput={showInput}
             currentBoards={currentBoards}
-            currentBoard={currentBoard}
             setCurrentBoard={setCurrentBoard}
-            setCurrentBoards={setCurrentBoards}
             DeleteBoard={DeleteBoard}
             showBoardCompMenu={showBoardCompMenu}
             setShowBoardCompMenu={setShowBoardCompMenu}
         />
-        {(boardCount == 0) ? <Welcome/> : <Board
-        name={currentBoard}
-        placingComponent={placingComponent}
-        setPlacingComponent={setPlacingComponent}
-        currentBoards={currentBoards}
-        boardComponents={boardComponents}
-        setBoardComponents={setBoardComponents}
+        {(boardCount === 0) ? <Welcome/> : <Board
+            name={currentBoard}
+            placingComponent={placingComponent}
+            setPlacingComponent={setPlacingComponent}
+            currentBoards={currentBoards}
+            boardComponents={boardComponents}
+            setBoardComponents={setBoardComponents}
+            updateInput={updateInput}
         />}
 
         {showBoardCompMenu ? <AddCompMenu
-            showBoardCompMenu={showBoardCompMenu}
             setShowBoardCompMenu={setShowBoardCompMenu}
-            placingComponent={placingComponent}
             setPlacingComponent={setPlacingComponent}
         /> : ""}
 
