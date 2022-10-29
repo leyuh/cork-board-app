@@ -10,6 +10,13 @@ function Board(props) {
 
   var boardIndex = currentBoards.indexOf(name);
 
+  const updateInput = (val, indx) => {
+    let newBoardComps = boardComponents;
+    newBoardComps[boardIndex][indx][3] = val;
+    setBoardComponents(newBoardComps);
+    console.log(boardComponents);
+  }
+
   const PlaceBoardComponent = (e) => {
     if (e.target.className == "main-board-div") {
       let compType = placingComponent;
@@ -56,6 +63,7 @@ function Board(props) {
               currentBoards={ currentBoards }
               boardIndex = {boardIndex}
               indx={i}
+              updateInput={() => updateInput}
               key={i}
             />
           default:
