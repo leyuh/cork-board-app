@@ -21,7 +21,7 @@
     float: right;
     position: relative;
     top: -80px;
-    margin-right: 5px;
+    margin-right: 10px;
 
     display: none;
 }
@@ -33,14 +33,13 @@
 .add-component-btn {
     background-color: #99e675;
     border-color: #559e33;
+    font-size: 20px;
+    font-weight: 900;
 }
 
 .delete-board-btn {
     background-color: #b54545;
     border-color: #872a2a;
-}
-
-.rename-board-btn {
-    background-color: #e6be60;
-    border-color: #b38b2e;
+    font-weight: 900;
+    font-size: 12px;
 }

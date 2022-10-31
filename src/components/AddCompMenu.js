@@ -1,5 +1,6 @@
 import '../styles/AddCompMenu.css';
 import stickyNoteImg from '../images/stickyNote.png';
+import listImg from '../images/list.png';
 import React from 'react';
 
 function AddCompMenu (props) {
@@ -16,7 +17,17 @@ function AddCompMenu (props) {
                     setPlacingComponent("sticky note");
                 }}>Sticky Note</button>
             </li>
+            <li>
+                <img className="comp-img" id="list-img" alt="" src={listImg}></img>
+                <button className="add-comp-btn" onClick={() => {
+                    setShowBoardCompMenu(false);
+                    setPlacingComponent("list");
+                }}>List</button>
+            </li>
         </ul>
+        <button id="cancel-btn" onClick={(e) => {
+            setShowBoardCompMenu(false);
+        }}>Cancel</button>
     </div>
 
 }

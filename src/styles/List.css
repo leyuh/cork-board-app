@@ -1,0 +1,53 @@
+.list-div {
+    background-image: url("../images/listBackground.png");
+    position: absolute;
+    height: 450px;
+    width: 250px;
+    box-shadow: 4px 8px 10px rgba(24, 24, 24, 0.6);
+    font-family: inherit;
+    overflow: visible;
+}
+
+
+.add-list-item {
+    position: relative;
+    float: right;
+    margin-top: -15px;
+    margin-right: 10px;
+    height: 28px;
+    width: 28px;
+    border: 2px solid;
+    border-radius: 5px;
+    background-color: #99e675;
+    border-color: #559e33;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.list-item {
+    color: black;
+    margin-top: 8px;
+    margin-left: -30px;
+    height: min-content;
+    font-family: "Comic Sans MS";
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.list-div > ul {
+    margin-top: 0px;
+    margin-left: 0px;
+    list-style: square inside;
+}
+
+.new-item-input {
+    color: black;
+    margin-top: -4px;
+    font-family: "Comic Sans MS";
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 20px;
+    height: 20px;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0);
+}

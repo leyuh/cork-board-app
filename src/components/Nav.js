@@ -4,7 +4,7 @@ import NavItem from './NavItem';
 
 function Nav(props) {
 
-    const {setShowInput, showInput, DeleteBoard, boardComponents, setCurrentBoard, showBoardCompMenu, setShowBoardCompMenu} = props;
+    const {setShowInput, showInput, DeleteBoard, boardComponents, setCurrentBoard, showBoardCompMenu, setShowBoardCompMenu, setSelectedComp} = props;
 
     return <div id="nav-div">
         <h1 id="my-boards-text">My Boards</h1>
@@ -19,6 +19,7 @@ function Nav(props) {
                 DeleteBoard={DeleteBoard}
                 showBoardCompMenu={showBoardCompMenu}
                 setShowBoardCompMenu={setShowBoardCompMenu}
+                setSelectedComp={setSelectedComp}
             />
         })}
         {showInput ? <input type="text" id="board-name-input" placeholder="Board name" autoFocus/> : ""}

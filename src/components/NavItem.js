@@ -2,7 +2,7 @@ import '../styles/NavItem.css';
 import React from 'react';
 
 function NavItem (props) {
-    const {boardName, setCurrentBoard, DeleteBoard, showBoardCompMenu, setShowBoardCompMenu} = props;
+    const {boardName, setCurrentBoard, DeleteBoard, showBoardCompMenu, setShowBoardCompMenu, setSelectedComp} = props;
     return <div className="nav-item-div">
         <h3 onClick={() => {
             console.log(boardName);
@@ -10,11 +10,12 @@ function NavItem (props) {
         }}>{boardName}</h3>
         <button className="nav-item-btn delete-board-btn" onClick={() => {
             DeleteBoard(boardName);
-        }}></button>
-        <button className="nav-item-btn rename-board-btn"></button>
+        }}>X</button>
         <button className="nav-item-btn add-component-btn" onClick={() => {
             setShowBoardCompMenu(!showBoardCompMenu);
-        }}></button>
+            setCurrentBoard(boardName);
+            setSelectedComp(null);
+        }}>+</button>
     </div>
 
 }

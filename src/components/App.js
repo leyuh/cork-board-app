@@ -7,6 +7,7 @@ import AddCompMenu from "./AddCompMenu";
 
 function App () {
 
+    const [selectedComp, setSelectedComp] = useState(null);
 
     const [boardCount, setBoardCount] = useState(0);
 
@@ -20,11 +21,20 @@ function App () {
 
     const [placingComponent, setPlacingComponent] = useState("");
 
+    // Selected element styling
+
+    useEffect(() => {
+        if (selectedComp !== null) {
+            selectedComp.setAttribute("style", {...(selectedComp.getAttribute("style")),
+                "border": "10px solid red"
+            })
+        }
+    }, [selectedComp])
 
 
     useEffect(() => {
         let inp = document.getElementById("board-name-input");
-        let boardName
+        let boardName;
         let listener;
         if (showInput) {
             listener = inp.addEventListener("keydown", (e) => {
@@ -49,12 +59,12 @@ function App () {
 
     // placing component effect
     useEffect(() => {
-        if (placingComponent === "sticky note") {
+        if (placingComponent !== "") {
             document.body.style.cursor = "grab";
-            // add event listener to current board, place sticky note when clicked and change placingComponent to ""
-        } else if (placingComponent === "") {
+        } else {
             document.body.style.cursor = "default";
         }
+
 
     }, [placingComponent])
 
@@ -65,6 +75,7 @@ function App () {
             setBoardCount(oldCount => oldCount + 1);
 
             setCurrentBoard(name);
+            setSelectedComp(null);
             setBoardComponents((comps) => {
                 let copy = comps;
                 copy[name] = [];
@@ -79,6 +90,7 @@ function App () {
 
         if (currentBoard === name) {
             setCurrentBoard("");
+            setSelectedComp(null);
         }
 
         let newComps = {};
@@ -89,8 +101,6 @@ function App () {
         }
 
         setBoardComponents(newComps);
-
-        setCurrentBoard("");
         return 1;
     }
 
@@ -104,6 +114,7 @@ function App () {
             setCurrentBoard={setCurrentBoard}
             showBoardCompMenu={showBoardCompMenu}
             setShowBoardCompMenu={setShowBoardCompMenu}
+            setSelectedComp={setSelectedComp}
         />
         {(boardCount === 0) ? <Welcome/> : <Board
             name={currentBoard}
@@ -111,6 +122,8 @@ function App () {
             setPlacingComponent={setPlacingComponent}
             boardComponents={boardComponents}
             setBoardComponents={setBoardComponents}
+            selectedComp={selectedComp}
+            setSelectedComp={setSelectedComp}
         />}
 
         {showBoardCompMenu ? <AddCompMenu
