@@ -65,9 +65,7 @@ function List (props) {
     }
 
 
-    return <div className="list-div" onClick={(e) => {
-        setSelectedComp(e.target);
-    }} style={{
+    return <div className="list-div" style={{
         position: "absolute",
         left: `${posX - 375}px`,
         top: `${posY - 75}px`,

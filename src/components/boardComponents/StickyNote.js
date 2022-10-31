@@ -12,9 +12,8 @@ function StickyNote (props) {
         textBox.current.value = boardComponents[boardName][compIndex][4];
     }, [boardName])
 
-    return <div className="sticky-note-div" onClick={(e) => {
-        setSelectedComp(e.target);
-    }} style={{
+
+    return <div className="sticky-note-div"style={{
         position: "absolute",
         left: `${posX - 375}px`,
         top: `${posY - 75}px`,

@@ -21,16 +21,6 @@ function App () {
 
     const [placingComponent, setPlacingComponent] = useState("");
 
-    // Selected element styling
-
-    useEffect(() => {
-        if (selectedComp !== null) {
-            selectedComp.setAttribute("style", {...(selectedComp.getAttribute("style")),
-                "border": "10px solid red"
-            })
-        }
-    }, [selectedComp])
-
 
     useEffect(() => {
         let inp = document.getElementById("board-name-input");
