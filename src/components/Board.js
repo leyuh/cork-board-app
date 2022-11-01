@@ -2,11 +2,13 @@ import { useEffect } from 'react';
 import '../styles/Board.css';
 import StickyNote from './boardComponents/StickyNote';
 import List from './boardComponents/List';
+import Sheet from './boardComponents/Sheet';
 import React from 'react';
 
 const COLORS = {
   "sticky note": ["#ffcc54", "#f29dc4", "#87cede", "#86db76"],
-  "list": ["#ffffff"]
+  "list": ["#ffffff"],
+  "sheet": ["#ffffff"]
 }
 
 function getRandomColor(type) {
@@ -38,6 +40,9 @@ function Board(props) {
           break;
         case "list":
           content = [];
+          break;
+        case "sheet":
+          content = "";
           break;
         default:
           break;
@@ -95,7 +100,18 @@ function Board(props) {
               compIndex={i}
               posX={val[1]} 
               posY={val[2]} 
-              color={val[3]}
+              boardComponents={boardComponents}
+              setBoardComponents={setBoardComponents}
+              selectedComp={selectedComp}
+              setSelectedComp={setSelectedComp}
+              key={i}
+            />
+          case "sheet":
+            return <Sheet
+              boardName={name}
+              compIndex={i}
+              posX={val[1]} 
+              posY={val[2]} 
               boardComponents={boardComponents}
               setBoardComponents={setBoardComponents}
               selectedComp={selectedComp}
