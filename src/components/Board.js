@@ -73,9 +73,6 @@ function Board(props) {
 
   }, [placingComponent])
 
-  useEffect(() => {
-    console.log("PING ", boardComponents[name]);
-  })
 
   return (
     <div className="main-board-div">

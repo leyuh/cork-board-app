@@ -5,7 +5,6 @@ function NavItem (props) {
     const {boardName, setCurrentBoard, DeleteBoard, showBoardCompMenu, setShowBoardCompMenu, setSelectedComp} = props;
     return <div className="nav-item-div">
         <h3 onClick={() => {
-            console.log(boardName);
             setCurrentBoard(boardName);
         }}>{boardName}</h3>
         <button className="nav-item-btn delete-board-btn" onClick={() => {

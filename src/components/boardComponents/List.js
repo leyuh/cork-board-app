@@ -7,18 +7,26 @@ import Pin from "./Pin";
 function List (props) {
 
     var listItems = useRef([]);
+    var div = useRef(null);
 
     const [showInput, setShowInput] = useState(false);
 
-    const { boardName, compIndex, posX, posY, color, boardComponents, setBoardComponents, selectedComp, setSelectedComp} = props;
+    const { boardName, compIndex, posX, posY, color, boardComponents, setBoardComponents, selectedComp} = props;
 
     useEffect(() => {
-        console.log(listItems.current);
  
         listItems.current.forEach((element, i) => {
             element.value = boardComponents[boardName][compIndex][4][i][0];
         });
     }, [boardName])
+
+    useEffect(() => {
+        if (selectedComp === div.current) {
+            div.current.style["border"] = "5px solid red";
+        } else {
+            div.current.style["border"] = "0px";
+        }
+    }, [selectedComp])
 
 
     useEffect(() => {
@@ -65,7 +73,7 @@ function List (props) {
     }
 
 
-    return <div className="list-div" style={{
+    return <div className="list-div" ref={div} style={{
         position: "absolute",
         left: `${posX - 375}px`,
         top: `${posY - 75}px`,

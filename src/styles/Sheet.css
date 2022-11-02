@@ -6,6 +6,7 @@
     background-color: white;
     box-shadow: 4px 8px 10px rgba(24, 24, 24, 0.6);
     font-family: inherit;
+    box-sizing: border-box;
 }
 
 .sheet-textarea {

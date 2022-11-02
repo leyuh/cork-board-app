@@ -7,6 +7,8 @@ import AddCompMenu from "./AddCompMenu";
 
 function App () {
 
+    const boardCompList = ["sticky-note", "list", "sheet"];
+
     const [selectedComp, setSelectedComp] = useState(null);
 
     const [boardCount, setBoardCount] = useState(0);
@@ -21,6 +23,38 @@ function App () {
 
     const [placingComponent, setPlacingComponent] = useState("");
 
+    const clickFunction = (e) => {
+        let div = false;
+        boardCompList.forEach((val) => {
+            if (e.target.getAttribute("class") === `${val}-div`) {
+                div = e.target;
+            } else if (e.target.parentNode !== null && e.target.parentNode.getAttribute("class") === `${val}-div`) {
+                div = e.target.parentNode;
+            } else if (e.target.parentNode.parentNode !== null && e.target.parentNode.parentNode.getAttribute("class") === `${val}-div`) {
+                div = e.target.parentNode.parentNode;
+            }
+        })
+
+        if (div && div !== selectedComp) {
+            setSelectedComp(div);
+            return 1;
+        } else {
+            if (e.target.getAttribute("class") === "main-board-div") {
+                setSelectedComp(null);
+            }
+        }
+
+        return 0;
+    }
+
+
+    useEffect(() => {
+        window.addEventListener('click', (e) => clickFunction(e));
+
+        return () => {
+          window.removeEventListener('click', (e) => clickFunction(e))
+        }
+      }, [])
 
     useEffect(() => {
         let inp = document.getElementById("board-name-input");
@@ -40,7 +74,6 @@ function App () {
         return (() => {
             if (showInput) {
                 inp.removeEventListener("keydown", listener);
-                console.log("Board name input cleaned up")
             }
             
         })

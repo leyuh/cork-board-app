@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: center;
     box-shadow: 4px 8px 10px rgba(24, 24, 24, 0.6);
+    box-sizing: border-box;
 }
 
 .sticky-note-textarea {
