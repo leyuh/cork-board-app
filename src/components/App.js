@@ -130,12 +130,15 @@ function App () {
             setCurrentBoard(name);
             setSelectedComp(null);
 
-            if (boardComponents !== null) {
-                let copy = boardComponents;
-                copy[name] = [];
-
-                setBoardComponents(copy);
+            if (boardComponents === null) {
+                setBoardComponents({});
             }
+
+            let copy = boardComponents;
+            copy[name] = [];
+
+            setBoardComponents(copy);
+
         }
         return 1;
     }
