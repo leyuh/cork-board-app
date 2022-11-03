@@ -3,7 +3,7 @@ import '../styles/BoardTools.css';
 
 function BoardTools (props) {
 
-    const {boardName, boardComponents, setBoardComponents, selectedComp, setSelectedComp} = props;
+    const {boardName, boardComponents, setBoardComponents, selectedComp, setSelectedComp, setPlacingComponent} = props;
 
     return <div id="board-tools-div">
         <button id="delete-comp-btn" className="comp-btn" onClick={() => {
@@ -16,10 +16,11 @@ function BoardTools (props) {
             newBoardComps[boardName].splice(deletedKey, 1);
 
             setBoardComponents(newBoardComps);
-            console.log(boardComponents);
 
         }}>X</button>
-        <button id="move-comp-btn" className="comp-btn">&gt;</button>
+        <button id="move-comp-btn" className="comp-btn" onClick={() => {
+            setPlacingComponent(selectedComp.getAttribute("class"))
+        }}>&gt;</button>
     </div>
 }
 

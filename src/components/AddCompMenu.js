@@ -6,7 +6,7 @@ import React from 'react';
 
 function AddCompMenu (props) {
 
-    const { setShowBoardCompMenu, setPlacingComponent} = props;
+    const { setShowBoardCompMenu, setPlacingComponent, setSelectedComp} = props;
 
     return <div id="add-comp-menu-div">
         <h1 id="add-comp-title">Add Component:</h1>
@@ -16,6 +16,7 @@ function AddCompMenu (props) {
                 <button className="add-comp-btn" onClick={() => {
                     setShowBoardCompMenu(false);
                     setPlacingComponent("sticky note");
+                    setSelectedComp(null);
                 }}>Sticky Note</button>
             </li>
             <li>
@@ -23,6 +24,7 @@ function AddCompMenu (props) {
                 <button className="add-comp-btn" onClick={() => {
                     setShowBoardCompMenu(false);
                     setPlacingComponent("list");
+                    setSelectedComp(null);
                 }}>List</button>
             </li>
             <li>
@@ -30,6 +32,7 @@ function AddCompMenu (props) {
                 <button className="add-comp-btn" onClick={() => {
                     setShowBoardCompMenu(false);
                     setPlacingComponent("sheet");
+                    setSelectedComp(null);
                 }}>Sheet</button>
             </li>
         </ul>

@@ -152,6 +152,7 @@ function App () {
         {showBoardCompMenu ? <AddCompMenu
             setShowBoardCompMenu={setShowBoardCompMenu}
             setPlacingComponent={setPlacingComponent}
+            setSelectedComp={setSelectedComp}
         /> : ""}
 
     </div>

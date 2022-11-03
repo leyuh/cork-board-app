@@ -29,37 +29,57 @@ function Board(props) {
 
   const PlaceBoardComponent = (e) => {
     if (e.target.className === "main-board-div") {
-      let compType = placingComponent;
-      let posX = e.pageX;
-      let posY = e.pageY;
-      let color = getRandomColor(compType);
+      if (!selectedComp) {
+        // PLACE
+        let compType = placingComponent;
+        let posX = e.pageX;
+        let posY = e.pageY;
+        let color = getRandomColor(compType);
 
-      let content;
-      switch (compType) {
-        case "sticky note":
-          content = "";
-          break;
-        case "list":
-          content = [];
-          break;
-        case "sheet":
-          content = "";
-          break;
-        default:
-          break;
-      }
+        let content;
+        switch (compType) {
+          case "sticky note":
+            content = "";
+            break;
+          case "list":
+            content = [];
+            break;
+          case "sheet":
+            content = "";
+            break;
+          default:
+            break;
+        }
 
-      setPlacingComponent("");
-      
-      let thisCompData = [compType, posX, posY, color, content];
+        setPlacingComponent("");
+        
+        let thisCompData = [compType, posX, posY, color, content];
 
-      if (boardComponents[name]) {
+        if (boardComponents[name]) {
+          let newBoardComps = boardComponents;
+          newBoardComps[name].push(thisCompData);
+          console.log(boardComponents);
+
+          setBoardComponents(newBoardComps);
+        }
+
+      } else {
+        // MOVE
+        let movedKey = selectedComp.getAttribute("k");
+        setSelectedComp(null);
+
+        let posX = e.pageX;
+        let posY = e.pageY;
+
         let newBoardComps = boardComponents;
-        newBoardComps[name].push(thisCompData);
-        console.log(boardComponents);
+
+        newBoardComps[name][movedKey][1] = posX;
+        newBoardComps[name][movedKey][2] = posY;
 
         setBoardComponents(newBoardComps);
+        setPlacingComponent("");
       }
+      
     }
   }
 
@@ -135,6 +155,7 @@ function Board(props) {
         setBoardComponents={setBoardComponents}
         selectedComp={selectedComp}
         setSelectedComp={setSelectedComp}
+        setPlacingComponent={setPlacingComponent}
       /> : ""}
     </div>
   );
