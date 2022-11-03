@@ -12,7 +12,7 @@ function Nav(props) {
         <button id="add-board-button" onClick={() => {
             setShowInput(true);
         }}>+</button>
-        {Object.keys(boardComponents).map((name , i) => {
+        {Object.keys(boardComponents || {}).map((name , i) => {
             return <NavItem 
                 boardName={name} 
                 key={i} 
