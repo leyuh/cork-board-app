@@ -1,6 +1,7 @@
 import '../../styles/Sheet.css';
 import React from 'react';
 import { useEffect, useRef } from 'react';
+import Pin from './Pin';
 
 function Sheet (props) {
 
@@ -28,6 +29,7 @@ function Sheet (props) {
         left: `${posX - 375}px`,
         top: `${posY - 75}px`
     }}>
+        <Pin/>
         <textarea
             ref={textBox} 
             className="sheet-textarea"
