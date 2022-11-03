@@ -92,6 +92,37 @@ function App () {
     }, [placingComponent])
 
 
+    // Board components & count local storage
+    useEffect(() => {
+        let data = localStorage.getItem("board-comps");
+        if (data !== "{}") {
+            setBoardComponents(JSON.parse(data));
+            setBoardCount(Object.keys(JSON.parse(data)).length);
+        }
+
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem("board-comps", JSON.stringify(boardComponents));
+    }, [boardComponents, boardCount])
+
+
+    // Current board local storage
+    useEffect(() => {
+        let data = localStorage.getItem("current-board");
+        if (data !== "") {
+            setCurrentBoard(data);
+        }
+
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem("current-board", currentBoard);
+    }, [currentBoard])
+
+
+
+
     const AddBoard = (name) => {
         // update state to hold new name
         if (name !== "" && name !== " ") {
@@ -99,11 +130,11 @@ function App () {
 
             setCurrentBoard(name);
             setSelectedComp(null);
-            setBoardComponents((comps) => {
-                let copy = comps;
-                copy[name] = [];
-                return copy;
-            })
+
+            let copy = boardComponents;
+            copy[name] = [];
+
+            setBoardComponents(copy);
         }
         return 1;
     }

@@ -55,13 +55,10 @@ function Board(props) {
         
         let thisCompData = [compType, posX, posY, color, content];
 
-        if (boardComponents[name]) {
-          let newBoardComps = boardComponents;
-          newBoardComps[name].push(thisCompData);
-          console.log(boardComponents);
+        let newBoardComps = boardComponents;
+        newBoardComps[name].push(thisCompData);
 
-          setBoardComponents(newBoardComps);
-        }
+        setBoardComponents(newBoardComps);
 
       } else {
         // MOVE
@@ -80,6 +77,7 @@ function Board(props) {
         setPlacingComponent("");
       }
       
+      localStorage.setItem("board-comps", JSON.stringify(boardComponents));
     }
   }
 

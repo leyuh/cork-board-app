@@ -6,10 +6,11 @@ function Nav(props) {
 
     const {setShowInput, showInput, DeleteBoard, boardComponents, setCurrentBoard, showBoardCompMenu, setShowBoardCompMenu, setSelectedComp} = props;
 
+
     return <div id="nav-div">
         <h1 id="my-boards-text">My Boards</h1>
         <button id="add-board-button" onClick={() => {
-            setShowInput(!showInput);
+            setShowInput(true);
         }}>+</button>
         {Object.keys(boardComponents).map((name , i) => {
             return <NavItem 
@@ -22,7 +23,7 @@ function Nav(props) {
                 setSelectedComp={setSelectedComp}
             />
         })}
-        {showInput ? <input type="text" id="board-name-input" placeholder="Board name" autoFocus/> : ""}
+        {showInput ? <input type="text" id="board-name-input" placeholder="Board name" autoFocus onBlur={() => setShowInput(!showInput)}/> : ""}
 
     </div>
 }

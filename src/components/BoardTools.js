@@ -16,7 +16,7 @@ function BoardTools (props) {
             newBoardComps[boardName].splice(deletedKey, 1);
 
             setBoardComponents(newBoardComps);
-
+            localStorage.setItem("board-comps", JSON.stringify(boardComponents));
         }}>X</button>
         <button id="move-comp-btn" className="comp-btn" onClick={() => {
             setPlacingComponent(selectedComp.getAttribute("class"))
