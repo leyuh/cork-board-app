@@ -7,7 +7,7 @@ function StickyNote (props) {
     var textBox = useRef(null);
     var div = useRef(null);
 
-    const { boardName, compIndex, posX, posY, color, boardComponents, setBoardComponents, selectedComp} = props;
+    const { boardName, compIndex, posX, posY, color, boardComponents, setBoardComponents, selectedComp, k} = props;
 
     useEffect(() => {
         textBox.current.value = boardComponents[boardName][compIndex][4];
@@ -22,7 +22,7 @@ function StickyNote (props) {
     }, [selectedComp])
 
 
-    return <div className="sticky-note-div" ref={div} style={{
+    return <div className="sticky-note-div" ref={div} k={k} style={{
         position: "absolute",
         left: `${posX - 375}px`,
         top: `${posY - 75}px`,

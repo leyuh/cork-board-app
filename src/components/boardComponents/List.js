@@ -11,7 +11,7 @@ function List (props) {
 
     const [showInput, setShowInput] = useState(false);
 
-    const { boardName, compIndex, posX, posY, color, boardComponents, setBoardComponents, selectedComp} = props;
+    const { boardName, compIndex, posX, posY, color, boardComponents, setBoardComponents, selectedComp, k} = props;
 
     useEffect(() => {
  
@@ -73,7 +73,7 @@ function List (props) {
     }
 
 
-    return <div className="list-div" ref={div} style={{
+    return <div className="list-div" ref={div} k={k} style={{
         position: "absolute",
         left: `${posX - 375}px`,
         top: `${posY - 75}px`,

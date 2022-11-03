@@ -8,7 +8,7 @@ function Sheet (props) {
     var div = useRef(null);
 
 
-    const { boardName, compIndex, posX, posY, boardComponents, setBoardComponents, selectedComp} = props;
+    const { boardName, compIndex, posX, posY, boardComponents, setBoardComponents, selectedComp, k} = props;
 
     useEffect(() => {
         textBox.current.value = boardComponents[boardName][compIndex][4];
@@ -23,7 +23,7 @@ function Sheet (props) {
     }, [selectedComp])
 
 
-    return <div className="sheet-div" ref={div} style={{
+    return <div className="sheet-div" ref={div} k={k} style={{
         position: "absolute",
         left: `${posX - 375}px`,
         top: `${posY - 75}px`

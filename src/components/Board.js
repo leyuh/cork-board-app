@@ -4,6 +4,7 @@ import StickyNote from './boardComponents/StickyNote';
 import List from './boardComponents/List';
 import Sheet from './boardComponents/Sheet';
 import React from 'react';
+import BoardTools from './BoardTools';
 
 const COLORS = {
   "sticky note": ["#ffcc54", "#f29dc4", "#87cede", "#86db76"],
@@ -55,6 +56,7 @@ function Board(props) {
       if (boardComponents[name]) {
         let newBoardComps = boardComponents;
         newBoardComps[name].push(thisCompData);
+        console.log(boardComponents);
 
         setBoardComponents(newBoardComps);
       }
@@ -89,7 +91,9 @@ function Board(props) {
               setBoardComponents={setBoardComponents}
               selectedComp={selectedComp}
               setSelectedComp={setSelectedComp}
+              k={i}
               key={i}
+              
             />
           case "list":
             return <List
@@ -101,7 +105,9 @@ function Board(props) {
               setBoardComponents={setBoardComponents}
               selectedComp={selectedComp}
               setSelectedComp={setSelectedComp}
+              k={i}
               key={i}
+              
             />
           case "sheet":
             return <Sheet
@@ -113,13 +119,23 @@ function Board(props) {
               setBoardComponents={setBoardComponents}
               selectedComp={selectedComp}
               setSelectedComp={setSelectedComp}
+              k={i}
               key={i}
+              
             />
 
           default:
             return ""
         }
       }) : ""}
+
+      {selectedComp ? <BoardTools 
+        boardName={name}
+        boardComponents={boardComponents}
+        setBoardComponents={setBoardComponents}
+        selectedComp={selectedComp}
+        setSelectedComp={setSelectedComp}
+      /> : ""}
     </div>
   );
 }

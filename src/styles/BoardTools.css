@@ -1,0 +1,28 @@
+#board-tools-div {
+    height: 70px;
+    width: 200px;
+    position: relative;
+    top: calc(-50% - 60px);
+    left: calc(-50% + 75px);
+    display: flex;
+    align-items: center;
+}
+
+.comp-btn {
+    font-weight: 900;
+    font-size: 25px;
+    height: 60px;
+    width: 60px;
+    border-radius: 15px;
+    margin-right: 5px;
+}
+
+#delete-comp-btn {
+    background-color: #b54545;
+    border: 5px solid #872a2a;
+}
+
+#move-comp-btn{
+    background-color: #e7c145;
+    border: 5px solid #da9f21;
+}
