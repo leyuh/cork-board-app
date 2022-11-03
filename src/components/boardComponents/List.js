@@ -75,8 +75,8 @@ function List (props) {
 
     return <div className="list-div" ref={div} k={k} style={{
         position: "absolute",
-        left: `${posX - 375}px`,
-        top: `${posY - 75}px`,
+        left: `${posX - 405}px`,
+        top: `${posY - 200}px`,
         backgroundColor: color
     }}>
         <Pin/>

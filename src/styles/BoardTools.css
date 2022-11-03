@@ -1,9 +1,9 @@
 #board-tools-div {
     height: 70px;
     width: 200px;
-    position: relative;
-    top: calc(-50% - 60px);
-    left: calc(-50% + 75px);
+    position: absolute;
+    top: 30px;
+    left: 100px;
     display: flex;
     align-items: center;
 }

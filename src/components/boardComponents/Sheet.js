@@ -26,8 +26,8 @@ function Sheet (props) {
 
     return <div className="sheet-div" ref={div} k={k} style={{
         position: "absolute",
-        left: `${posX - 375}px`,
-        top: `${posY - 75}px`
+        left: `${posX - 450}px`,
+        top: `${posY - 200}px`
     }}>
         <Pin/>
         <textarea
