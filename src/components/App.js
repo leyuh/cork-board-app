@@ -95,7 +95,7 @@ function App () {
     // Board components & count local storage
     useEffect(() => {
         let data = localStorage.getItem("board-comps");
-        if (data !== "{}") {
+        if (data !== "{}" && data !== undefined) {
             setBoardComponents(JSON.parse(data));
             setBoardCount(Object.keys(JSON.parse(data)).length);
         }
