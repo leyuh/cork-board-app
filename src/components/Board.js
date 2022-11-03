@@ -96,7 +96,7 @@ function Board(props) {
 
   return (
     <div className="main-board-div">
-      {(boardComponents[name] && boardComponents[name].length > 0) ? boardComponents[name].map((val, i) => {
+      {((boardComponents !== null) && boardComponents[name] && boardComponents[name].length > 0) ? boardComponents[name].map((val, i) => {
         switch (val[0]) {
           case "sticky note":
             return <StickyNote
