@@ -19,8 +19,6 @@ function App () {
     
     const [showInput, setShowInput] = useState(false);
 
-    const [showBoardCompMenu, setShowBoardCompMenu] = useState(false);
-
     const [placingComponent, setPlacingComponent] = useState("");
 
     const clickFunction = (e) => {
@@ -170,8 +168,6 @@ function App () {
             DeleteBoard={DeleteBoard}
             boardComponents={boardComponents}
             setCurrentBoard={setCurrentBoard}
-            showBoardCompMenu={showBoardCompMenu}
-            setShowBoardCompMenu={setShowBoardCompMenu}
             setSelectedComp={setSelectedComp}
         />
         {(boardCount === 0) ? <Welcome/> : <Board
@@ -184,8 +180,7 @@ function App () {
             setSelectedComp={setSelectedComp}
         />}
 
-        {showBoardCompMenu ? <AddCompMenu
-            setShowBoardCompMenu={setShowBoardCompMenu}
+        {(boardCount > 0) ?  <AddCompMenu
             setPlacingComponent={setPlacingComponent}
             setSelectedComp={setSelectedComp}
         /> : ""}

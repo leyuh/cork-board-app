@@ -6,39 +6,36 @@ import React from 'react';
 
 function AddCompMenu (props) {
 
-    const { setShowBoardCompMenu, setPlacingComponent, setSelectedComp} = props;
+    const { setPlacingComponent, setSelectedComp} = props;
 
     return <div id="add-comp-menu-div">
-        <h1 id="add-comp-title">Add Component:</h1>
         <ul>
             <li>
                 <img className="comp-img" id="sticky-note-img" alt="" src={stickyNoteImg}></img>
-                <button className="add-comp-btn" onClick={() => {
-                    setShowBoardCompMenu(false);
+                <button className="add-comp-btn" id="sticky-note-btn" onClick={() => {
                     setPlacingComponent("sticky note");
                     setSelectedComp(null);
-                }}>Sticky Note</button>
+                }}></button>
+                <h4 className="comp-label" id="sticky-note-label">Sticky note</h4>
             </li>
             <li>
                 <img className="comp-img" id="list-img" alt="" src={listImg}></img>
-                <button className="add-comp-btn" onClick={() => {
-                    setShowBoardCompMenu(false);
+                <button className="add-comp-btn" id="list-btn" onClick={() => {
                     setPlacingComponent("list");
                     setSelectedComp(null);
-                }}>List</button>
+                }}></button>
+                <h4 className="comp-label" id="list-label">List</h4>
             </li>
             <li>
                 <img className="comp-img" id="sheet-img" alt="" src={sheetImg}></img>
-                <button className="add-comp-btn" onClick={() => {
-                    setShowBoardCompMenu(false);
+                <button className="add-comp-btn" id="sheet-btn" onClick={() => {
+
                     setPlacingComponent("sheet");
                     setSelectedComp(null);
-                }}>Sheet</button>
+                }}></button>
+                <h4 className="comp-label" id="sheet-label">Sheet</h4>
             </li>
         </ul>
-        <button id="cancel-btn" onClick={(e) => {
-            setShowBoardCompMenu(false);
-        }}>Cancel</button>
     </div>
 
 }
