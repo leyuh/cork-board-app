@@ -4,6 +4,7 @@ import Welcome from './Welcome';
 import Nav from './Nav';
 import '../styles/App.css';
 import AddCompMenu from "./AddCompMenu";
+import ColorPanel from "./ColorPanel";
 
 function App () {
 
@@ -20,6 +21,12 @@ function App () {
     const [showInput, setShowInput] = useState(false);
 
     const [placingComponent, setPlacingComponent] = useState("");
+
+    const [placingColor, setPlacingColor] = useState("");
+
+    const [showColorPanel, setShowColorPanel] = useState(false);
+
+    const [colorChoosingComp, setColorChoosingComp] = useState(null);
 
     const clickFunction = (e) => {
         let div = false;
@@ -170,6 +177,7 @@ function App () {
             setCurrentBoard={setCurrentBoard}
             setSelectedComp={setSelectedComp}
         />
+        
         {(boardCount === 0) ? <Welcome/> : <Board
             name={currentBoard}
             placingComponent={placingComponent}
@@ -178,12 +186,28 @@ function App () {
             setBoardComponents={setBoardComponents}
             selectedComp={selectedComp}
             setSelectedComp={setSelectedComp}
+            setShowColorPanel={setShowColorPanel}
+            placingColor={placingColor}
+            setPlacingColor={setPlacingColor}
         />}
 
         {(boardCount > 0) ?  <AddCompMenu
             setPlacingComponent={setPlacingComponent}
             setSelectedComp={setSelectedComp}
+            showColorPanel={showColorPanel}
+            setShowColorPanel={setShowColorPanel}
+            setColorChoosingComp={setColorChoosingComp}
         /> : ""}
+
+        {showColorPanel ? <ColorPanel
+            setShowColorPanel={setShowColorPanel}
+            setPlacingComponent={setPlacingComponent}
+            setSelectedComp={setSelectedComp}
+            colorChoosingComp={colorChoosingComp}
+            setColorChoosingComp={setColorChoosingComp}
+            setPlacingColor={setPlacingColor}
+        /> : ""}
+
 
     </div>
 

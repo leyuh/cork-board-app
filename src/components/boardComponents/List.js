@@ -110,7 +110,9 @@ function List (props) {
                     onInput={(e) => updateContent(e, i)}
                     onClick={(e) => crossOut(e, i)}
                 >
-                    <span>{` ${elem[0]} `}</span>
+                    <span style={{
+                        color: (color === "#000000") ? "white" : "black"
+                    }}>{` ${elem[0]} `}</span>
                     <div className="list-item-underline"></div>
                     {(selectedComp === div.current) ? 
                         <button className="delete-list-item-btn" onClick={() => removeListItem(i)}>X</button> 
@@ -119,7 +121,9 @@ function List (props) {
             })}
         </ul>
 
-        {showInput ? <input className="new-item-input" id={`item-input-${boardName}-${compIndex}`} type="text" autoFocus onBlur={() => {setShowInput(false)}}></input> : ""}
+        {showInput ? <input className="new-item-input" id={`item-input-${boardName}-${compIndex}`} type="text" autoFocus onBlur={() => {setShowInput(false)}} style={{
+            color: (color === "#000000") ? "white" : "black"
+        }}></input> : ""}
     </div>
 
 }

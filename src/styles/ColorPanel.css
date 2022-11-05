@@ -1,0 +1,19 @@
+#color-panel-div {
+    width: 135px;
+    height: 227px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(6, 20px);
+    grid-template-rows: repeat(10, 20px);
+    gap: 3px;
+    padding: 10px;
+
+    position: absolute;
+    top: calc(50% - 150px);
+    right: 105px;
+}
+
+.color-div{
+    border: 1px solid black;
+    border-radius: 3px;
+}

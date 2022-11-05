@@ -9,7 +9,7 @@ function Sheet (props) {
     var div = useRef(null);
 
 
-    const { boardName, compIndex, posX, posY, boardComponents, setBoardComponents, selectedComp, k} = props;
+    const { boardName, compIndex, posX, posY, color, boardComponents, setBoardComponents, selectedComp, k} = props;
 
     useEffect(() => {
         textBox.current.value = boardComponents[boardName][compIndex][4];
@@ -27,7 +27,8 @@ function Sheet (props) {
     return <div className="sheet-div" ref={div} k={k} style={{
         position: "absolute",
         left: `${(((posX - 200) / (window.innerWidth - 200)) * 100) - 14}%`,
-        top: `${((posY / window.innerHeight) * 100) - 24}%`
+        top: `${((posY / window.innerHeight) * 100) - 24}%`,
+        backgroundColor: color,
     }}>
         <Pin/>
         <textarea
@@ -40,6 +41,9 @@ function Sheet (props) {
                     newBoardComps[boardName][compIndex][4] = e.target.value;
                     return newBoardComps;
                 })
+            }}
+            style={{
+                color: (color === "#000000") ? "white" : "black"
             }}
         >
         </textarea>

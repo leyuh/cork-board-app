@@ -6,23 +6,10 @@ import Sheet from './boardComponents/Sheet';
 import React from 'react';
 import BoardTools from './BoardTools';
 
-const COLORS = {
-  "sticky note": ["#ffcc54", "#f29dc4", "#87cede", "#86db76"],
-  "list": ["#ffffff"],
-  "sheet": ["#ffffff"]
-}
-
-function getRandomColor(type) {
-  let colors = COLORS[type];
-  let random = Math.floor(Math.random()*colors.length);
-
-  return colors[random];
-}
-
 
 function Board(props) {
 
-  const {name, placingComponent, setPlacingComponent, boardComponents, setBoardComponents, selectedComp, setSelectedComp} = props;
+  const {name, placingComponent, setPlacingComponent, boardComponents, setBoardComponents, selectedComp, setSelectedComp, placingColor, setPlacingColor} = props;
 
 
 
@@ -34,7 +21,7 @@ function Board(props) {
         let compType = placingComponent;
         let posX = e.pageX;
         let posY = e.pageY;
-        let color = getRandomColor(compType);
+        let color = placingColor;
 
         let content;
         switch (compType) {
@@ -52,6 +39,7 @@ function Board(props) {
         }
 
         setPlacingComponent("");
+        setPlacingColor("");
         
         let thisCompData = [compType, posX, posY, color, content];
 
@@ -59,6 +47,7 @@ function Board(props) {
         newBoardComps[name].push(thisCompData);
 
         setBoardComponents(newBoardComps);
+        console.log(boardComponents);
 
       } else {
         // MOVE
@@ -99,6 +88,7 @@ function Board(props) {
       {((boardComponents !== null) && boardComponents[name] && boardComponents[name].length > 0) ? boardComponents[name].map((val, i) => {
         switch (val[0]) {
           case "sticky note":
+            console.log("ping");
             return <StickyNote
               boardName={name}
               compIndex={i}
@@ -119,6 +109,7 @@ function Board(props) {
               compIndex={i}
               posX={val[1]} 
               posY={val[2]} 
+              color={val[3]}
               boardComponents={boardComponents}
               setBoardComponents={setBoardComponents}
               selectedComp={selectedComp}
@@ -133,6 +124,7 @@ function Board(props) {
               compIndex={i}
               posX={val[1]} 
               posY={val[2]} 
+              color={val[3]}
               boardComponents={boardComponents}
               setBoardComponents={setBoardComponents}
               selectedComp={selectedComp}

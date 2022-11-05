@@ -9,6 +9,7 @@ function StickyNote (props) {
 
     const { boardName, compIndex, posX, posY, color, boardComponents, setBoardComponents, selectedComp, k} = props;
 
+
     useEffect(() => {
         textBox.current.value = boardComponents[boardName][compIndex][4];
     }, [boardName])
@@ -38,6 +39,9 @@ function StickyNote (props) {
                     newBoardComps[boardName][compIndex][4] = e.target.value;
                     return newBoardComps;
                 })
+            }}
+            style={{
+                color: (color === "#000000") ? "white" : "black"
             }}
         >
         </textarea>
