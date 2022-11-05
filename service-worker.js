@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/cork-board-app/precache-manifest.37e98e7982f2b9ac82b8ceba2fb1758f.js"
+  "/cork-board-app/precache-manifest.9e96ebd63a2f235e3bda2373e5a83cfd.js"
 );
 
 workbox.clientsClaim();

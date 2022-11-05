@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "e82f2ece518069174592",
-    "url": "/cork-board-app/static/css/main.cf5ef917.chunk.css"
+    "revision": "9a931c99efff0cc6d20d",
+    "url": "/cork-board-app/static/css/main.77ceeb38.chunk.css"
   },
   {
-    "revision": "e82f2ece518069174592",
-    "url": "/cork-board-app/static/js/main.e82f2ece.chunk.js"
+    "revision": "9a931c99efff0cc6d20d",
+    "url": "/cork-board-app/static/js/main.9a931c99.chunk.js"
   },
   {
     "revision": "044acfcabf655622e9a6",
@@ -20,19 +20,15 @@ self.__precacheManifest = [
     "url": "/cork-board-app/static/media/stickyNote.488e779e.png"
   },
   {
-    "revision": "284c93bd7b5c0dc9aaaeea474ebfbea9",
-    "url": "/cork-board-app/static/media/list.284c93bd.png"
-  },
-  {
-    "revision": "da873a0933fd256dd9324a006748b944",
-    "url": "/cork-board-app/static/media/sheet.da873a09.png"
+    "revision": "f8979aebc93e5671a6e636377411b89c",
+    "url": "/cork-board-app/static/media/list.f8979aeb.png"
   },
   {
     "revision": "57d60c2ac5c92821a6e4494847b35fed",
     "url": "/cork-board-app/static/media/tree.57d60c2a.png"
   },
   {
-    "revision": "a1e62ff59e57e655eba4674ecd8bfcd4",
+    "revision": "6628d58bb8fe55c9b5a6dbfebd70d46c",
     "url": "/cork-board-app/index.html"
   }
 ];
