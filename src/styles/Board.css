@@ -1,8 +1,8 @@
 .main-board-div {
     background-color: rgb(174, 148, 96);
     border: 25px outset rgb(33, 33, 33);
-    height: 75%;
-    width: 80%;
+    height: 40vw;
+    width: 65vw;
     display: flex;
     align-items: center;
     justify-content: center;

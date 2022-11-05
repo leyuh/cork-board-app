@@ -1,8 +1,7 @@
 .sheet-div {
     position: absolute;
-    background-image: url("../images/sheetBackground.png");
-    height: 450px;
-    width: 350px;
+    height: 24vw;
+    width: 18vw;
     background-color: white;
     box-shadow: 4px 8px 10px rgba(24, 24, 24, 0.6);
     font-family: inherit;
@@ -11,10 +10,10 @@
 }
 
 .sheet-textarea {
-    height: 330px;
-    width: 250px;
+    height: 90%;
+    width: 90%;
     text-align: left;
-    font-size: 18.65px;
+    font-size: 18px;
     background-color: rgb(0, 0, 0, 0);
     border-width: 0px;
     resize: none;
@@ -22,8 +21,9 @@
     color: rgb(5, 5, 5);
     font-weight: 600;
     position: relative;
-    left: 77px;
-    top: 50px;
+    left: 5%;
+    top: 0%;
     line-height: 25.5px;
     max-lines: 13;
+    overflow-y: scroll;
 }

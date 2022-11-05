@@ -17,7 +17,7 @@ function Sheet (props) {
 
     useEffect(() => {
         if (selectedComp === div.current) {
-            div.current.style["border"] = "5px solid red";
+            div.current.style["border"] = "5px solid rgba(225, 30, 30)";
         } else {
             div.current.style["border"] = "0px";
         }
@@ -26,8 +26,8 @@ function Sheet (props) {
 
     return <div className="sheet-div" ref={div} k={k} style={{
         position: "absolute",
-        left: `${posX - 450}px`,
-        top: `${posY - 200}px`
+        left: `${(((posX - 200) / (window.innerWidth - 200)) * 100) - 14}%`,
+        top: `${((posY / window.innerHeight) * 100) - 24}%`
     }}>
         <Pin/>
         <textarea

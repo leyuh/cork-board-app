@@ -37,9 +37,9 @@
 .comp-img {
     position: relative;
     height: auto;
-    width: 40px;
-    left: 10px;
-    top: 10px;
+    width: 50px;
+    left: 5px;
+    top: 5px;
 }
 
 #sticky-note-img {

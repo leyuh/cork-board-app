@@ -15,7 +15,7 @@ function StickyNote (props) {
 
     useEffect(() => {
         if (selectedComp === div.current) {
-            div.current.style["border"] = "5px solid red";
+            div.current.style["border"] = "5px solid rgba(225, 30, 30)";
         } else {
             div.current.style["border"] = "0px";
         }
@@ -24,8 +24,8 @@ function StickyNote (props) {
 
     return <div className="sticky-note-div" ref={div} k={k} style={{
         position: "absolute",
-        left: `${posX - 375}px`,
-        top: `${posY - 75}px`,
+        left: `${(((posX - 200) / (window.innerWidth - 200)) * 100) - 10}%`,
+        top: `${((posY / window.innerHeight) * 100) - 10}%`,
         backgroundColor: color
     }}>
         <textarea
