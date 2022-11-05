@@ -13,6 +13,14 @@ function AddCompMenu (props) {
     return <div id="add-comp-menu-div">
         <ul>
             <li>
+                <img className="comp-img" id="mini-sticky-note-img" alt="" src={stickyNoteImg}></img>
+                <button className="add-comp-btn" id="mini-sticky-note-btn" onClick={() => {
+                    setShowColorPanel(!showColorPanel)
+                    setColorChoosingComp(!showColorPanel ? "mini sticky note" : "");
+                }}></button>
+                <h4 className="comp-label" id="mini-sticky-note-label">Mini sticky note</h4>
+            </li>
+            <li>
                 <img className="comp-img" id="sticky-note-img" alt="" src={stickyNoteImg}></img>
                 <button className="add-comp-btn" id="sticky-note-btn" onClick={() => {
                     setShowColorPanel(!showColorPanel)

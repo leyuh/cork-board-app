@@ -8,7 +8,7 @@ import ColorPanel from "./ColorPanel";
 
 function App () {
 
-    const boardCompList = ["sticky-note", "list", "sheet"];
+    const boardCompList = ["sticky-note", "list", "sheet", "mini-sticky-note"];
 
     const [selectedComp, setSelectedComp] = useState(null);
 

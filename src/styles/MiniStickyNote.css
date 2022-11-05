@@ -1,7 +1,7 @@
-.sticky-note-div {
+.mini-sticky-note-div {
     position: absolute;
-    height: 10vw;
-    width: 10vw;
+    height: 6vw;
+    width: 6vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,11 +9,11 @@
     box-sizing: border-box;
 }
 
-.sticky-note-textarea {
+.mini-sticky-note-textarea {
     height: calc(100% - 10px);
     width: calc(100% - 10px);
     text-align: left;
-    font-size: 17px;
+    font-size: 14px;
     background-color: rgb(0, 0, 0, 0);
     border-width: 0px;
     resize: none;

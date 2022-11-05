@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import '../styles/Board.css';
+import MiniStickyNote from './boardComponents/MiniStickyNote';
 import StickyNote from './boardComponents/StickyNote';
 import List from './boardComponents/List';
 import Sheet from './boardComponents/Sheet';
@@ -25,6 +26,9 @@ function Board(props) {
 
         let content;
         switch (compType) {
+          case "mini sticky note":
+            content = "";
+            break;
           case "sticky note":
             content = "";
             break;
@@ -87,8 +91,22 @@ function Board(props) {
     <div className="main-board-div">
       {((boardComponents !== null) && boardComponents[name] && boardComponents[name].length > 0) ? boardComponents[name].map((val, i) => {
         switch (val[0]) {
+          case "mini sticky note":
+            return <MiniStickyNote
+            boardName={name}
+            compIndex={i}
+            posX={val[1]} 
+            posY={val[2]} 
+            color={val[3]}
+            boardComponents={boardComponents}
+            setBoardComponents={setBoardComponents}
+            selectedComp={selectedComp}
+            setSelectedComp={setSelectedComp}
+            k={i}
+            key={i}
+            
+          />
           case "sticky note":
-            console.log("ping");
             return <StickyNote
               boardName={name}
               compIndex={i}
