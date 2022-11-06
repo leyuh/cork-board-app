@@ -5,7 +5,7 @@
     position: absolute;
     top: calc(50% - 150px);
     float: right;
-    right: 20px;
+    right: 0px;
     border: 10px solid rgb(3, 12, 4);
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;

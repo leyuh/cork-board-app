@@ -13,8 +13,8 @@
 .add-list-item {
     position: relative;
     float: right;
-    margin-top: -25px;
-    margin-right: 10px;
+    margin-top: -5%;
+    margin-right: 5%;
     height: 40px;
     width: 35px;
     color: rgba(150, 150, 150, 0.5);

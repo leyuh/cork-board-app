@@ -3,8 +3,16 @@
     border: 25px outset rgb(33, 33, 33);
     height: 40vw;
     width: 65vw;
+    position: relative;
+    left: 8vw;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: visible;
 }
+
+@media only screen and (max-width: 1400px) {
+    .main-board-div {
+      left: -5vw;
+    }
+  }

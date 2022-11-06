@@ -14,6 +14,7 @@
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     border: 10px solid rgb(3, 12, 4);
+    overflow: visible;
 }
 
 #add-board-button {
@@ -44,3 +45,24 @@
     margin-bottom: 5px;
     margin-left: 5px;
 }
+
+#minimize-nav-btn{
+    height: 45px;
+    width: 45px;
+    background-color: rgb(16, 34, 22);
+    border: 6px solid rgb(3, 12, 4);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+    font-size: 30px;
+    float: right;
+    right: -115px;
+    top: 40px;
+    visibility: hidden;
+}
+
+@media only screen and (max-width: 1400px) {
+    #minimize-nav-btn {
+      visibility: visible;
+    }
+  }
