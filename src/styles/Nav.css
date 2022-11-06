@@ -61,7 +61,16 @@
     visibility: hidden;
 }
 
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 800px) {
+    #nav-div {
+        visibility: hidden;
+    }
+    #minimize-nav-btn {
+        visibility: hidden;
+    }
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1400px) {
     #minimize-nav-btn {
       visibility: visible;
     }
