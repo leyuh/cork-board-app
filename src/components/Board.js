@@ -9,7 +9,7 @@ import React from 'react';
 
 function Board(props) {
 
-  const {name, placingComponent, setPlacingComponent, boardComponents, setBoardComponents, selectedComp, setSelectedComp, placingColor, setPlacingColor} = props;
+  const {name, placingComponent, setPlacingComponent, boardComponents, setBoardComponents, selectedComp, setSelectedComp, placingData} = props;
 
   const boardRef = useRef(null);
 
@@ -31,7 +31,9 @@ function Board(props) {
         let compType = placingComponent;
         let posX = getMousePosition(boardRef.current, e.clientX, e.clientY)[0];
         let posY = getMousePosition(boardRef.current, e.clientX, e.clientY)[1];
-        let color = placingColor;
+        let color = placingData[1];
+        let font = placingData[2];
+        let fontColor = placingData[3];
 
         let content;
         switch (compType) {
@@ -52,9 +54,8 @@ function Board(props) {
         }
 
         setPlacingComponent("");
-        setPlacingColor("");
         
-        let thisCompData = [compType, posX, posY, color, content];
+        let thisCompData = [compType, posX, posY, color, font, fontColor, content];
 
         let newBoardComps = boardComponents;
         newBoardComps[name].push(thisCompData);
@@ -104,9 +105,7 @@ function Board(props) {
             return <MiniStickyNote
             boardName={name}
             compIndex={i}
-            posX={val[1]} 
-            posY={val[2]} 
-            color={val[3]}
+            data={val.slice(1,6)}
             boardComponents={boardComponents}
             setBoardComponents={setBoardComponents}
             selectedComp={selectedComp}
@@ -119,9 +118,7 @@ function Board(props) {
             return <StickyNote
               boardName={name}
               compIndex={i}
-              posX={val[1]} 
-              posY={val[2]} 
-              color={val[3]}
+              data={val.slice(1,6)}
               boardComponents={boardComponents}
               setBoardComponents={setBoardComponents}
               selectedComp={selectedComp}
@@ -134,9 +131,7 @@ function Board(props) {
             return <List
               boardName={name}
               compIndex={i}
-              posX={val[1]} 
-              posY={val[2]} 
-              color={val[3]}
+              data={val.slice(1,6)}
               boardComponents={boardComponents}
               setBoardComponents={setBoardComponents}
               selectedComp={selectedComp}
@@ -149,9 +144,7 @@ function Board(props) {
             return <Sheet
               boardName={name}
               compIndex={i}
-              posX={val[1]} 
-              posY={val[2]} 
-              color={val[3]}
+              data={val.slice(1,6)}
               boardComponents={boardComponents}
               setBoardComponents={setBoardComponents}
               selectedComp={selectedComp}

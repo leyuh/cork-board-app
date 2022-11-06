@@ -10,12 +10,14 @@ function List (props) {
 
     const [showInput, setShowInput] = useState(false);
 
-    const { boardName, compIndex, posX, posY, color, boardComponents, setBoardComponents, selectedComp, k} = props;
+    const { boardName, compIndex, data, boardComponents, setBoardComponents, selectedComp, k} = props;
+
+    const [posX, posY, color, font, fontColor] = data;
 
     useEffect(() => {
  
         listItems.current.forEach((element, i) => {
-            element.value = boardComponents[boardName][compIndex][4][i][0];
+            element.value = boardComponents[boardName][compIndex][6][i][0];
         });
     }, [boardName])
 
@@ -54,7 +56,7 @@ function List (props) {
 
     const updateContent = (e, listItemIndex) => {
         let newBoardComps = {...boardComponents};
-        newBoardComps[boardName][compIndex][4][listItemIndex][0] = e.target.value;
+        newBoardComps[boardName][compIndex][6][listItemIndex][0] = e.target.value;
         setBoardComponents(newBoardComps);
         return 1;
     }
@@ -62,7 +64,7 @@ function List (props) {
     const crossOut = (e, listItemIndex) => {
         if (e.target.className !== "delete-list-item-btn") {
             let newBoardComps = {...boardComponents};
-            let item = newBoardComps[boardName][compIndex][4][listItemIndex]
+            let item = newBoardComps[boardName][compIndex][6][listItemIndex]
             item[1] = !(item[1]);
             setBoardComponents(newBoardComps);
             return 1;
@@ -72,14 +74,14 @@ function List (props) {
 
     const addListItem = (txt) => {
         let newBoardComps = {...boardComponents};
-        newBoardComps[boardName][compIndex][4].push([txt, false]);
+        newBoardComps[boardName][compIndex][6].push([txt, false]);
         setBoardComponents(newBoardComps);
         return 1;
     }
 
     const removeListItem = (i) => {
         let newBoardComps = {...boardComponents};
-        newBoardComps[boardName][compIndex][4].splice(i, 1);
+        newBoardComps[boardName][compIndex][6].splice(i, 1);
         setBoardComponents(newBoardComps);
         return 1;
     }
@@ -89,27 +91,29 @@ function List (props) {
         position: "absolute",
         left: `calc(${posX}px - 7.5vw)`,
         top: `calc(${posY}px - 2vw)`,
-        backgroundColor: color
+        backgroundColor: color,
+        fontFamily: font,
+        color: fontColor
     }}>
         <button className="add-list-item" onClick={(e) => {
-            let theseContents = boardComponents[boardName][compIndex][4]
+            let theseContents = boardComponents[boardName][compIndex][6]
             if ((theseContents.length === 0) || theseContents[theseContents.length - 1][0] !== "") {
                 setShowInput(!showInput);
             }
         }}>+</button>
 
         <ul>
-            {boardComponents[boardName][compIndex][4].map((elem, i) => {
+            {boardComponents[boardName][compIndex][6].map((elem, i) => {
                 return <li 
                     className="list-item" 
                     key={`${boardName}-${compIndex}-${i}`} 
                     ref={listItems[i]} 
-                    style={elem[1] ? {"textDecoration": "line-through"} : {}}
+                    style={elem[1] ? {"textDecoration": "line-through", color: fontColor} : {color: fontColor}}
                     onInput={(e) => updateContent(e, i)}
                     onClick={(e) => crossOut(e, i)}
                 >
                     <span style={{
-                        color: (color === "#000000") ? "white" : "black"
+                        color: fontColor
                     }}>{` ${elem[0]} `}</span>
                     <div className="list-item-underline"></div>
                     {(selectedComp === div.current) ? 
@@ -119,9 +123,7 @@ function List (props) {
             })}
         </ul>
 
-        {showInput ? <input className="new-item-input" id={`item-input-${boardName}-${compIndex}`} type="text" autoFocus onBlur={() => {setShowInput(false)}} style={{
-            color: (color === "#000000") ? "white" : "black"
-        }}></input> : ""}
+        {showInput ? <input className="new-item-input" id={`item-input-${boardName}-${compIndex}`} type="text" autoFocus onBlur={() => {setShowInput(false)}}></input> : ""}
     </div>
 
 }

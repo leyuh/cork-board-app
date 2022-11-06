@@ -1,0 +1,96 @@
+#comp-custom-div {
+    min-height: 200px;
+    height: 300px;
+    width: 200px;
+    background-color: rgb(16, 34, 22);
+    position: absolute;
+    top: calc(50vh - 150px);
+    float: right;
+    right: 75px;
+    border: 10px solid rgb(3, 12, 4);
+    border-radius: 20px;
+    overflow-x: visible;
+    overflow-y: scroll;
+    z-index: 2;
+    display: grid;
+    grid-template-rows: repeat(4, 50px);
+    gap: 10px;
+    overflow: visible;
+}
+
+#comp-custom-div > div {
+    width: 200px;
+    position: relative;
+    left: 0%;
+    height: 50px;
+    top: 50px;
+    margin-top: 10px;
+}
+
+#chosen-comp-title{
+    display: block;
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    text-align: center;
+    margin-bottom: 20px;
+    height: 60px;
+    line-height: 30px;
+    font-size: 28px;
+    top: -10px;
+}
+
+#comp-custom-div > div > h3 {
+    display: inline;
+    float: left;
+    position: relative;
+    left: 5px;
+    width: 140px;
+    font-size: 20px;
+}
+
+#comp-custom-div > div > button {
+    display: inline;
+    float: right;
+    position: relative;
+    right: 10px;
+    top: 10px;
+}
+
+.chosen-color {
+    height: 30px;
+    width: 30px;
+    background-color: aqua;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+#chosen-font-btn {
+    width: 120px;
+    height: 20px;
+    max-lines: 1;
+    color: white;
+    top: 25px;
+    margin-top: 10px;
+    position: relative;
+    text-align: right;
+    font-family: inherit;
+    font-size: 20px;
+    border: 0px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#place-comp-btn{
+    height: 40px;
+    width: 120px;
+    position: absolute;
+    top: 250px;
+    left: 45px;
+    border-radius: 10px;
+    background-color: #99e675;
+    border: 3px solid black;
+    font-family: inherit;
+    font-size: 22px;
+    color: black;
+}
+

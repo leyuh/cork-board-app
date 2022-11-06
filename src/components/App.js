@@ -4,8 +4,10 @@ import Welcome from './Welcome';
 import Nav from './Nav';
 import '../styles/App.css';
 import AddCompMenu from "./AddCompMenu";
-import ColorPanel from "./ColorPanel";
+import ColorPanel from './ColorPanel.js';
+import FontPanel from './FontPanel.js';
 import BoardTools from "./BoardTools";
+import CompCustomMenu from "./CompCustomMenu";
 
 function App () {
 
@@ -23,11 +25,15 @@ function App () {
 
     const [placingComponent, setPlacingComponent] = useState("");
 
-    const [placingColor, setPlacingColor] = useState("");
+    const [customizingComp, setCustomizingComp] = useState(null);
 
+    // [name, color, font, font color]
+    const [placingData, setPlacingData] = useState([null, '#ffffff', "Comic Sans MS", '#ffffff']);
+
+
+    // comp customization menu
     const [showColorPanel, setShowColorPanel] = useState(false);
-
-    const [colorChoosingComp, setColorChoosingComp] = useState(null);
+    const [showFontPanel, setShowFontPanel] = useState(false);
 
 
     const clickFunction = (e) => {
@@ -197,28 +203,41 @@ function App () {
             setBoardComponents={setBoardComponents}
             selectedComp={selectedComp}
             setSelectedComp={setSelectedComp}
-            setShowColorPanel={setShowColorPanel}
-            placingColor={placingColor}
-            setPlacingColor={setPlacingColor}
+            placingData={placingData}
         />}
 
         {(boardCount > 0) ?  <AddCompMenu
             setPlacingComponent={setPlacingComponent}
             setSelectedComp={setSelectedComp}
+            setCustomizingComp={setCustomizingComp}
+            customizingComp={customizingComp}
+            placingData={placingData}
+            setPlacingData={setPlacingData}
+        /> : ""}
+
+        {(customizingComp) ? <CompCustomMenu
+            customizingComp={customizingComp}
+            setCustomizingComp={setCustomizingComp}
+            placingData={placingData}
+            setPlacingData={setPlacingData}
             showColorPanel={showColorPanel}
             setShowColorPanel={setShowColorPanel}
-            setColorChoosingComp={setColorChoosingComp}
+            showFontPanel={showFontPanel}
+            setShowFontPanel={setShowFontPanel}
+            setPlacingComponent={setPlacingComponent}
         /> : ""}
 
         {showColorPanel ? <ColorPanel
+            showColorPanel={showColorPanel}
             setShowColorPanel={setShowColorPanel}
-            setPlacingComponent={setPlacingComponent}
-            setSelectedComp={setSelectedComp}
-            colorChoosingComp={colorChoosingComp}
-            setColorChoosingComp={setColorChoosingComp}
-            setPlacingColor={setPlacingColor}
+            placingData={placingData}
+            setPlacingData = {setPlacingData}
         /> : ""}
-
+        {showFontPanel ? <FontPanel
+            setShowFontPanel={setShowFontPanel}
+            placingData={placingData}
+            setPlacingData = {setPlacingData}
+        /> : ""}
 
     </div>
 

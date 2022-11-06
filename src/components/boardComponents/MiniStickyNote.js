@@ -7,11 +7,13 @@ function MiniStickyNote (props) {
     var textBox = useRef(null);
     var div = useRef(null);
 
-    const { boardName, compIndex, posX, posY, color, boardComponents, setBoardComponents, selectedComp, k} = props;
+    const { boardName, compIndex, data, boardComponents, setBoardComponents, selectedComp, k} = props;
+
+    const [posX, posY, color, font, fontColor] = data;
 
 
     useEffect(() => {
-        textBox.current.value = boardComponents[boardName][compIndex][4];
+        textBox.current.value = boardComponents[boardName][compIndex][6];
     }, [boardName])
 
     useEffect(() => {
@@ -27,7 +29,9 @@ function MiniStickyNote (props) {
         position: "absolute",
         left: `calc(${posX}px - 4.5vw)`,
         top: `calc(${posY}px - 2vw)`,
-        backgroundColor: color
+        backgroundColor: color,
+        fontFamily: font,
+        color: fontColor
     }}>
         <textarea
             ref={textBox} 
@@ -36,12 +40,9 @@ function MiniStickyNote (props) {
             onInput={(e) => {
                 setBoardComponents(() => {
                     let newBoardComps = {...boardComponents};
-                    newBoardComps[boardName][compIndex][4] = e.target.value;
+                    newBoardComps[boardName][compIndex][6] = e.target.value;
                     return newBoardComps;
                 })
-            }}
-            style={{
-                color: (color === "#000000") ? "white" : "black"
             }}
         >
         </textarea>

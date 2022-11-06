@@ -4,7 +4,8 @@ import React from 'react';
 
 function ColorPanel (props) {
 
-    const {setShowColorPanel, setPlacingComponent, setSelectedComp, colorChoosingComp, setColorChoosingComp, setPlacingColor} = props;
+    const {showColorPanel, setShowColorPanel, placingData, setPlacingData} = props;
+
 
     return <div id="color-panel-div">
         {Object.values(COLORS).map((val) => {
@@ -12,11 +13,16 @@ function ColorPanel (props) {
                 return <div className="color-div" style={{
                     backgroundColor: color
                 }} key={color} onClick={(e) => {
+                    if (showColorPanel === "color") {
+                        let tempData = placingData;
+                        tempData[1] = color;
+                        setPlacingData(tempData);
+                    } else if (showColorPanel === "font color") {
+                        let tempData = placingData;
+                        tempData[3] = color;
+                        setPlacingData(tempData);
+                    }
                     setShowColorPanel(false);
-                    setSelectedComp(null);
-                    setPlacingComponent(colorChoosingComp);
-                    setColorChoosingComp(null);
-                    setPlacingColor(color);
                 }}></div>
             })
         })}

@@ -1,0 +1,23 @@
+#font-panel-div{
+    width: 150px;
+    height: 250px;
+    overflow-y: scroll;
+    border: 0px;
+    background-color: rgb(3, 12, 4);
+
+    position: absolute;
+    top: calc(50vh - 125px);
+    right: 290px;
+}
+
+#font-panel-div > ul {
+    position: relative;
+    width: 95%;
+    left: -15%;
+}
+
+#font-panel-div > ul > li {
+    width: 100%;
+    left: 0%;
+    margin-bottom: 5px;
+}
