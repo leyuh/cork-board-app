@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "8c6f12cbbab3d3f51c84",
-    "url": "/cork-board-app/static/css/main.b0a4e55b.chunk.css"
+    "revision": "1d2e067dc3f319995348",
+    "url": "/cork-board-app/static/css/main.b98164ed.chunk.css"
   },
   {
-    "revision": "8c6f12cbbab3d3f51c84",
-    "url": "/cork-board-app/static/js/main.8c6f12cb.chunk.js"
+    "revision": "1d2e067dc3f319995348",
+    "url": "/cork-board-app/static/js/main.1d2e067d.chunk.js"
   },
   {
     "revision": "a3530fbd7fc9c1063e2a",
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/cork-board-app/static/media/tree.57d60c2a.png"
   },
   {
-    "revision": "40b3e0104698098fa4bb3772efed7ffb",
+    "revision": "0a1d2bce834dbca246fc9cbcf427f95e",
     "url": "/cork-board-app/index.html"
   }
 ];
