@@ -1,9 +1,10 @@
 #add-comp-menu-div {
-    height: 300px;
+    min-height: 200px;
+    height: 50vh;
     width: 70px;
     background-color: rgb(16, 34, 22);
     position: absolute;
-    top: calc(50% - 150px);
+    top: 26vh;
     float: right;
     right: 0px;
     border: 10px solid rgb(3, 12, 4);
@@ -11,8 +12,8 @@
     border-bottom-left-radius: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    overflow: visible;
+    overflow-x: visible;
+    overflow-y: scroll;
 }
 
 #add-comp-menu-div > ul {
@@ -84,21 +85,5 @@
     top: -130px;
     font-size: 27px;
     visibility: hidden;
+    z-index: 5;
 }
-
-#mini-sticky-note-btn:hover + #mini-sticky-note-label {
-    visibility: visible;
-}
-
-#sticky-note-btn:hover + #sticky-note-label  {
-    visibility: visible;
-}
-
-#list-btn:hover + #list-label {
-    visibility: visible ;
-}
-
-#sheet-btn:hover + #sheet-label {
-    visibility: visible;
-}
-

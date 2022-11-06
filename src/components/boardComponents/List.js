@@ -1,7 +1,6 @@
 import '../../styles/List.css';
 import React from 'react';
 import { useEffect, useRef, useState } from 'react';
-import Pin from "./Pin";
 
 
 function List (props) {
@@ -88,11 +87,10 @@ function List (props) {
 
     return <div className="list-div" ref={div} k={k} style={{
         position: "absolute",
-        left: `${(((posX - 200) / (window.innerWidth - 200)) * 100) - 10}%`,
-        top: `${((posY / window.innerHeight) * 100) - 22}%`,
+        left: `calc(${posX}px - 7.5vw)`,
+        top: `calc(${posY}px - 2vw)`,
         backgroundColor: color
     }}>
-        <Pin className="pin"/>
         <button className="add-list-item" onClick={(e) => {
             let theseContents = boardComponents[boardName][compIndex][4]
             if ((theseContents.length === 0) || theseContents[theseContents.length - 1][0] !== "") {

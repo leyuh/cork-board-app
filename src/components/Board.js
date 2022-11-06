@@ -1,18 +1,27 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import '../styles/Board.css';
 import MiniStickyNote from './boardComponents/MiniStickyNote';
 import StickyNote from './boardComponents/StickyNote';
 import List from './boardComponents/List';
 import Sheet from './boardComponents/Sheet';
 import React from 'react';
-import BoardTools from './BoardTools';
 
 
 function Board(props) {
 
   const {name, placingComponent, setPlacingComponent, boardComponents, setBoardComponents, selectedComp, setSelectedComp, placingColor, setPlacingColor} = props;
 
+  const boardRef = useRef(null);
 
+  const getMousePosition = (canvas, posX, posY) => {
+    if (!canvas) {
+      return -1;
+    }
+    let rect = canvas.getBoundingClientRect();
+    let x = posX - rect.left;
+    let y = posY - rect.top;
+    return ([x, y]);
+  }
 
 
   const PlaceBoardComponent = (e) => {
@@ -20,8 +29,8 @@ function Board(props) {
       if (!selectedComp) {
         // PLACE
         let compType = placingComponent;
-        let posX = e.pageX;
-        let posY = e.pageY;
+        let posX = getMousePosition(boardRef.current, e.clientX, e.clientY)[0];
+        let posY = getMousePosition(boardRef.current, e.clientX, e.clientY)[1];
         let color = placingColor;
 
         let content;
@@ -58,8 +67,8 @@ function Board(props) {
         let movedKey = selectedComp.getAttribute("k");
         setSelectedComp(null);
 
-        let posX = e.pageX;
-        let posY = e.pageY;
+        let posX = getMousePosition(boardRef.current, e.clientX, e.clientY)[0];
+        let posY = getMousePosition(boardRef.current, e.clientX, e.clientY)[1];
 
         let newBoardComps = boardComponents;
 
@@ -88,7 +97,7 @@ function Board(props) {
 
 
   return (
-    <div className="main-board-div">
+    <div className="main-board-div" ref={boardRef}>
       {((boardComponents !== null) && boardComponents[name] && boardComponents[name].length > 0) ? boardComponents[name].map((val, i) => {
         switch (val[0]) {
           case "mini sticky note":
@@ -156,15 +165,6 @@ function Board(props) {
             return ""
         }
       }) : ""}
-
-      {selectedComp ? <BoardTools 
-        boardName={name}
-        boardComponents={boardComponents}
-        setBoardComponents={setBoardComponents}
-        selectedComp={selectedComp}
-        setSelectedComp={setSelectedComp}
-        setPlacingComponent={setPlacingComponent}
-      /> : ""}
     </div>
   );
 }

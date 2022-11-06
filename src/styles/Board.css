@@ -5,9 +5,6 @@
     width: 65vw;
     position: relative;
     left: 8vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: visible;
 }
 

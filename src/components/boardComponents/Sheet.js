@@ -1,7 +1,6 @@
 import '../../styles/Sheet.css';
 import React from 'react';
 import { useEffect, useRef } from 'react';
-import Pin from './Pin';
 
 function Sheet (props) {
 
@@ -26,11 +25,10 @@ function Sheet (props) {
 
     return <div className="sheet-div" ref={div} k={k} style={{
         position: "absolute",
-        left: `${(((posX - 200) / (window.innerWidth - 200)) * 100) - 14}%`,
-        top: `${((posY / window.innerHeight) * 100) - 24}%`,
+        left: `calc(${posX}px - 10.5vw)`,
+        top: `calc(${posY}px - 2vw)`,
         backgroundColor: color,
     }}>
-        <Pin/>
         <textarea
             ref={textBox} 
             className="sheet-textarea"

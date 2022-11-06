@@ -25,8 +25,8 @@ function StickyNote (props) {
 
     return <div className="sticky-note-div" ref={div} k={k} style={{
         position: "absolute",
-        left: `${(((posX - 200) / (window.innerWidth - 200)) * 100) - 10}%`,
-        top: `${((posY / window.innerHeight) * 100) - 10}%`,
+        left: `calc(${posX}px - 6.5vw)`,
+        top: `calc(${posY}px - 2vw)`,
         backgroundColor: color
     }}>
         <textarea

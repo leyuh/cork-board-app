@@ -5,6 +5,7 @@ import Nav from './Nav';
 import '../styles/App.css';
 import AddCompMenu from "./AddCompMenu";
 import ColorPanel from "./ColorPanel";
+import BoardTools from "./BoardTools";
 
 function App () {
 
@@ -27,6 +28,7 @@ function App () {
     const [showColorPanel, setShowColorPanel] = useState(false);
 
     const [colorChoosingComp, setColorChoosingComp] = useState(null);
+
 
     const clickFunction = (e) => {
         let div = false;
@@ -177,6 +179,15 @@ function App () {
             setCurrentBoard={setCurrentBoard}
             setSelectedComp={setSelectedComp}
         />
+
+        {(selectedComp) ? <BoardTools
+            boardName={currentBoard}
+            boardComponents={boardComponents}
+            setBoardComponents={setBoardComponents}
+            selectedComp={selectedComp}
+            setSelectedComp={setSelectedComp}
+            setPlacingComponent={setPlacingComponent}
+        /> : ""}
         
         {(boardCount === 0) ? <Welcome/> : <Board
             name={currentBoard}

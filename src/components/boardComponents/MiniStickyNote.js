@@ -25,8 +25,8 @@ function MiniStickyNote (props) {
 
     return <div className="mini-sticky-note-div" ref={div} k={k} style={{
         position: "absolute",
-        left: `${(((posX - 200) / (window.innerWidth - 200)) * 100) - 6}%`,
-        top: `${((posY / window.innerHeight) * 100) - 6}%`,
+        left: `calc(${posX}px - 4.5vw)`,
+        top: `calc(${posY}px - 2vw)`,
         backgroundColor: color
     }}>
         <textarea

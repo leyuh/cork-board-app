@@ -18,7 +18,6 @@ function AddCompMenu (props) {
                     setShowColorPanel(!showColorPanel)
                     setColorChoosingComp(!showColorPanel ? "mini sticky note" : "");
                 }}></button>
-                <h4 className="comp-label" id="mini-sticky-note-label">Mini sticky note</h4>
             </li>
             <li>
                 <img className="comp-img" id="sticky-note-img" alt="" src={stickyNoteImg}></img>
@@ -26,7 +25,6 @@ function AddCompMenu (props) {
                     setShowColorPanel(!showColorPanel)
                     setColorChoosingComp(!showColorPanel ? "sticky note" : "");
                 }}></button>
-                <h4 className="comp-label" id="sticky-note-label">Sticky note</h4>
             </li>
             <li>
                 <img className="comp-img" id="list-img" alt="" src={listImg}></img>
@@ -34,7 +32,6 @@ function AddCompMenu (props) {
                     setShowColorPanel(!showColorPanel)
                     setColorChoosingComp(!showColorPanel ? "list" : "");
                 }}></button>
-                <h4 className="comp-label" id="list-label">List</h4>
             </li>
             <li>
                 <img className="comp-img" id="sheet-img" alt="" src={sheetImg}></img>
@@ -42,7 +39,6 @@ function AddCompMenu (props) {
                     setShowColorPanel(!showColorPanel)
                     setColorChoosingComp(!showColorPanel ? "sheet" : "");
                 }}></button>
-                <h4 className="comp-label" id="sheet-label">Sheet</h4>
             </li>
         </ul>
     </div>

@@ -2,10 +2,12 @@
     height: 70px;
     width: 200px;
     position: absolute;
-    top: 30px;
-    left: 100px;
+    top: 40px;
+    left: 350px;
+    float: left;
     display: flex;
     align-items: center;
+    z-index: 5;
 }
 
 .comp-btn {
