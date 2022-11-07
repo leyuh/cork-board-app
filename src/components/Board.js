@@ -4,6 +4,7 @@ import MiniStickyNote from './boardComponents/MiniStickyNote';
 import StickyNote from './boardComponents/StickyNote';
 import List from './boardComponents/List';
 import Sheet from './boardComponents/Sheet';
+import Pin from './boardComponents/Pin';
 import React from 'react';
 
 
@@ -49,6 +50,9 @@ function Board(props) {
           case "sheet":
             content = "";
             break;
+          case "pin":
+            content = undefined;
+            break;
           default:
             break;
         }
@@ -61,7 +65,6 @@ function Board(props) {
         newBoardComps[name].push(thisCompData);
 
         setBoardComponents(newBoardComps);
-        console.log(boardComponents);
 
       } else {
         // MOVE
@@ -147,6 +150,15 @@ function Board(props) {
               data={val.slice(1,6)}
               boardComponents={boardComponents}
               setBoardComponents={setBoardComponents}
+              selectedComp={selectedComp}
+              setSelectedComp={setSelectedComp}
+              k={i}
+              key={i}
+              
+            />
+          case "pin":
+            return <Pin
+              data={val.slice(1,4)}
               selectedComp={selectedComp}
               setSelectedComp={setSelectedComp}
               k={i}

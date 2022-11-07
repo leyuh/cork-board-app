@@ -24,26 +24,32 @@ function CompCustomMenu (props) {
                 }
             }}></button>
         </div>
-        <div className="comp-custom-item">
-            <h3 id="choose-font-text" style={{width: "70px"}}>Font:</h3>
-            <button id="chosen-font-btn" onClick={() => {
-                setShowFontPanel(!showFontPanel);
-                setShowColorPanel(false);
-            }}>{placingData[2] || "Comic Sans MS"}</button>
-        </div>
-        <div className="comp-custom-item">
-            <h3 id="choose-font-color-text">Font Color:</h3>
-            <button id="chosen-font-color-btn" style={{
-                backgroundColor: placingData[3]
-            }} className="chosen-color" onClick={() => {
-                if (!showColorPanel) {
-                    setShowColorPanel("font color");
-                    setShowFontPanel(false);
-                } else {
+        {(placingData[0] !== "pin") ? 
+            <div className="comp-custom-item">
+                <h3 id="choose-font-text" style={{width: "70px"}}>Font:</h3>
+                <button id="chosen-font-btn" onClick={() => {
+                    setShowFontPanel(!showFontPanel);
                     setShowColorPanel(false);
-                }
-            }}></button>
-        </div>
+                }}>{placingData[2] || "Comic Sans MS"}</button>
+            </div>
+        : ""}
+
+        {(placingData[0] !== "pin") ?
+            <div className="comp-custom-item">
+                <h3 id="choose-font-color-text">Font Color:</h3>
+                <button id="chosen-font-color-btn" style={{
+                    backgroundColor: placingData[3]
+                }} className="chosen-color" onClick={() => {
+                    if (!showColorPanel) {
+                        setShowColorPanel("font color");
+                        setShowFontPanel(false);
+                    } else {
+                        setShowColorPanel(false);
+                    }
+                }}></button>
+            </div>
+        : ""}
+        
         <button id="place-comp-btn" onClick={() => {
             setPlacingComponent(placingData[0]);
             setCustomizingComp(null);

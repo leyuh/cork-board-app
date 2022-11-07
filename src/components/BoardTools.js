@@ -12,7 +12,6 @@ function BoardTools (props) {
 
 
             let newBoardComps = boardComponents;
-            console.log(deletedKey)
             newBoardComps[boardName].splice(deletedKey, 1);
 
             setBoardComponents(newBoardComps);

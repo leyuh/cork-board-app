@@ -11,7 +11,7 @@ import CompCustomMenu from "./CompCustomMenu";
 
 function App () {
 
-    const boardCompList = ["sticky-note", "list", "sheet", "mini-sticky-note"];
+    const boardCompList = ["sticky-note", "list", "sheet", "mini-sticky-note", "pin"];
 
     const [selectedComp, setSelectedComp] = useState(null);
 
@@ -28,7 +28,7 @@ function App () {
     const [customizingComp, setCustomizingComp] = useState(null);
 
     // [name, color, font, font color]
-    const [placingData, setPlacingData] = useState([null, '#ffffff', "Comic Sans MS", '#ffffff']);
+    const [placingData, setPlacingData] = useState([null, '#ffffff', "Comic Sans MS", '#000000']);
 
 
     // comp customization menu
